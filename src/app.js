@@ -22,7 +22,6 @@ const App = () => {
         <Projects />
         <Resume />
         <Piano />
-        <YouTubeLinks />
       </main>
       <footer>
         <p>&copy; {new Date().getFullYear()} Luke Qiao. All rights reserved.</p>
