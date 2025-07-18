@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luke's Personal Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luke Qiao | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body id="root">
+<body>
   <header>
-    <h1>Welcome to My Portfolio</h1>
+    <h1>Luke Qiao</h1>
     <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#piano">Piano</a></li>
-      </ul>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#piano">Piano</a>
     </nav>
   </header>
+
   <main>
     <section id="about">
-      <!-- AboutMe component will be rendered here -->
+      <h2>About Me</h2>
+      <p>I'm an engineer passionate about building creative, technical solutions — from hardware and signal processing to machine learning and music tech.</p>
     </section>
-    <section id="experience">
-      <!-- Experience component will be rendered here -->
-    </section>
+
     <section id="projects">
-      <!-- Projects component will be rendered here -->
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Project Title Placeholder</h3>
+        <p>Description of the project goes here. This should briefly describe the problem, the approach, and any technologies used.</p>
+        <img src="assets/project1.jpg" alt="Project Image Placeholder" />
+      </div>
+      <!-- Add more projects similarly -->
     </section>
+
     <section id="resume">
-      <!-- Resume component will be rendered here -->
+      <h2>Resume</h2>
+      <p>You can view my resume below:</p>
+      <embed src="assets/resume.pdf" type="application/pdf" width="100%" height="600px" />
     </section>
+
     <section id="piano">
-      <!-- Piano component will be rendered here -->
+      <h2>Piano</h2>
+      <p>I also enjoy playing piano in my free time. Here's a selection of my performances:</p>
+      <ul>
+        <li><a href="https://youtube.com/placeholder" target="_blank">Piano Performance 1</a></li>
+        <li><a href="https://youtube.com/placeholder" target="_blank">Piano Performance 2</a></li>
+      </ul>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2023 Luke Qiao. All rights reserved.</p>
+    <p>&copy; 2025 Luke Qiao. All rights reserved.</p>
   </footer>
 </body>
 </html>
