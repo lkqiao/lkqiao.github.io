@@ -1,0 +1,32 @@
+{
+  "name": "personal-portfolio",
+  "version": "1.0.0",
+  "description": "A personal portfolio website showcasing technical skills, resume, experiences, projects, and piano recordings.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "devDependencies": {
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^5.2.4",
+    "style-loader": "^2.0.0"
+  },
+  "keywords": [
+    "portfolio",
+    "personal",
+    "website",
+    "react"
+  ],
+  "author": "Luke Qiao",
+  "license": "MIT"
+}
