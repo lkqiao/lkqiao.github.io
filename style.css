@@ -95,6 +95,10 @@ body {
   text-decoration: none;
 }
 
+.sidebar h1 a:hover {
+  color: var(--accent-color);
+}
+
 .sidebar nav {
   display: flex;
   flex-direction: column;
@@ -196,6 +200,10 @@ main section h2 {
   opacity: 0;
 }
 
+.floating-social img:hover {
+  filter: invert(40%);
+}
+
 #darkModeToggle {
   background: var(--bubble-bg-light);
   border: none;
@@ -225,6 +233,10 @@ main section h2 {
   animation: fadeInUp 0.2s ease-out forwards;
   animation-delay: 0.1s;
   opacity: 0;
+}
+
+#darkModeToggle img:hover {
+  filter: invert(40%);
 }
 
 body.dark {
@@ -263,6 +275,10 @@ body.dark .floating-social img {
   filter: invert(100%);
 }
 
+body.dark .floating-social img:hover {
+  filter: invert(60%);
+}
+
 body.dark #darkModeToggle {
   background: var(--bubble-bg-dark);
   box-shadow: 0 4px 10px rgba(255,255,255,0.08);
@@ -271,6 +287,11 @@ body.dark #darkModeToggle {
 body.dark #darkModeToggle img {
   filter: invert(100%);
 }
+
+body.dark #darkModeToggle img:hover {
+  filter: invert(60%);
+}
+
 
 #darkModeToggle,
 .footer-bubble-wrapper {
