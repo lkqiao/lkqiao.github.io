@@ -63,7 +63,9 @@
           <img src="assets/instagram.svg" alt="Instagram" />
         </a>
       </div>
-      <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌓</button>
+      <button id="darkModeToggle" aria-label="Toggle Dark Mode">
+        <img id="darkModeIcon" src="assets/moon.svg" alt="Toggle Theme" />
+      </button>
     </div>
 
     <p>&copy; 2025 Luke Qiao. All rights reserved.</p>
@@ -71,8 +73,13 @@
 
   <script>
     const toggle = document.getElementById('darkModeToggle');
+    const icon = document.getElementById('darkModeIcon');
+
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
+      icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     });
   </script>
 </body>
