@@ -18,29 +18,27 @@
   </header>
 
   <main>
-    <section id="about">
+    <section id="about" class="hidden">
       <h2>About Me</h2>
       <p>I'm an engineer passionate about building creative, technical solutions — from hardware and signal processing to machine learning and music tech.</p>
     </section>
 
-
-    <section id="experience">
+    <section id="experience" class="hidden">
       <h2>Experience</h2>
       <p>You can view my resume below:</p>
       <embed src="assets/resume.pdf" type="application/pdf" width="100%" height="600px" />
     </section>
 
-    <section id="projects">
+    <section id="projects" class="hidden">
       <h2>Projects</h2>
       <div class="project">
         <h3>Project Title Placeholder</h3>
         <p>Description of the project goes here. This should briefly describe the problem, the approach, and any technologies used.</p>
         <img src="assets/project1.jpg" alt="Project Image Placeholder" />
       </div>
-      <!-- Add more projects similarly -->
     </section>
 
-    <section id="music">
+    <section id="music" class="hidden">
       <h2>Music</h2>
       <p>I also enjoy playing piano in my free time. Here's a selection of my performances:</p>
       <ul>
@@ -72,6 +70,7 @@
   </footer>
 
   <script>
+    // Dark mode toggle
     const toggle = document.getElementById('darkModeToggle');
     const icon = document.getElementById('darkModeIcon');
 
@@ -80,6 +79,22 @@
       const isDark = document.body.classList.contains('dark');
       icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
       icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    });
+
+    // Scroll-triggered animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.hidden').forEach(section => {
+      observer.observe(section);
     });
   </script>
 </body>
