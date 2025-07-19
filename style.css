@@ -1,4 +1,3 @@
-/* variables for easy theming */
 :root {
   --font-base: 'Helvetica Neue', sans-serif;
   --bg-light: #f7f8fa;
@@ -12,12 +11,11 @@
   --bg-dark: #121212;
   --text-dark: #ddd;
   --card-dark: #1e1e1e;
-  --social-dark: #121212;
+  --social-dark: #222;
   --shadow-dark-light: 0 4px 12px rgba(255, 255, 255, 0.05);
   --shadow-dark-heavy: 0 4px 10px rgba(255, 255, 255, 0.08);
 }
 
-/* reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -45,6 +43,7 @@ header {
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: var(--text-light);
 }
 
 nav {
@@ -72,18 +71,7 @@ main section {
   background: var(--bg-white);
   border-radius: 8px;
   box-shadow: var(--shadow-light);
-}
-
-/* SCROLL-TRIGGERED ANIMATIONS */
-.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 main section h2 {
@@ -103,6 +91,18 @@ footer {
   margin-top: 60px;
   color: #888;
   font-size: 0.9rem;
+}
+
+/* scroll-triggered animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* responsive */
@@ -197,21 +197,21 @@ body.dark {
   color: var(--text-dark);
 }
 
-body.dark header,
-body.dark main section {
-  background-color: var(--card-dark);
-  box-shadow: var(--shadow-dark-light);
-}
-
 body.dark header h1,
 body.dark main section h2,
-body.dark footer,
-body.dark nav a {
+body.dark nav a,
+body.dark footer {
   color: var(--text-dark);
 }
 
 body.dark nav a:hover {
   color: var(--accent-color);
+}
+
+body.dark header,
+body.dark main section {
+  background-color: var(--card-dark);
+  box-shadow: var(--shadow-dark-light);
 }
 
 body.dark .floating-social {
