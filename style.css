@@ -203,6 +203,17 @@ body.dark main section {
   box-shadow: var(--shadow-dark-light);
 }
 
+body.dark header h1,
+body.dark main section h2,
+body.dark footer,
+body.dark nav a {
+  color: var(--text-dark);
+}
+
+body.dark nav a:hover {
+  color: var(--accent-color);
+}
+
 body.dark .floating-social {
   background-color: var(--social-dark);
   box-shadow: var(--shadow-dark-heavy);
