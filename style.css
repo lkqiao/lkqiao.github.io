@@ -191,7 +191,9 @@ main section h2 {
   border-radius: 0;
   margin: 0;
   padding: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  animation: fadeInUp 0.2s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 .floating-social img:hover {
@@ -225,6 +227,9 @@ main section h2 {
   display: block;
   margin: 0;
   padding: 0;
+  animation: fadeInUp 0.2s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 #darkModeToggle:hover {
