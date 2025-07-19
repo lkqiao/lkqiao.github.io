@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luke Qiao | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1><a href="#top">Luke Qiao | Portfolio</a></h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#music">Music</a>
-    </nav>
-  </header>
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="profile-container">
+        <img src="assets/profile.png" alt="Profile" />
+      </div>
+      <h1><a href="#">Luke Qiao</a></h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#music">Music</a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="bottom-row">
+        <div class="floating-social">
+          <a href="https://github.com/lkqiao" target="_blank"><img src="assets/github.svg" alt="GitHub" /></a>
+          <a href="https://www.linkedin.com/in/luke-qiao/" target="_blank"><img src="assets/linkedin.svg" alt="LinkedIn" /></a>
+          <a href="https://www.instagram.com/chowpawn/" target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
+        </div>
+        <button id="darkModeToggle">
+          <img id="darkModeIcon" src="assets/moon.svg" alt="Toggle Theme" />
+        </button>
+      </div>
+      <p class="footer-text">© 2025 Luke Qiao. All rights reserved.</p>
+    </div>
+  </aside>
 
   <main>
     <section id="about">
@@ -48,45 +68,23 @@
     </section>
   </main>
 
-  <div class="footer-bubble-wrapper">
-    <div class="floating-social">
-      <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">
-        <img src="assets/github.svg" alt="GitHub" />
-      </a>
-      <a href="https://www.linkedin.com/in/luke-qiao/" target="_blank" aria-label="LinkedIn">
-        <img src="assets/linkedin.svg" alt="LinkedIn" />
-      </a>
-      <a href="https://www.instagram.com/chowpawn/" target="_blank" aria-label="Instagram">
-        <img src="assets/instagram.svg" alt="Instagram" />
-      </a>
-    </div>
-    <button id="darkModeToggle" aria-label="Toggle Dark Mode">
-      <img id="darkModeIcon" src="assets/moon.svg" alt="Toggle Theme" />
-    </button>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Luke Qiao. All rights reserved.</p>
-  </footer>
-
   <script>
     const toggle = document.getElementById('darkModeToggle');
     const icon = document.getElementById('darkModeIcon');
 
-    // Load theme on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      const isDark = localStorage.getItem('theme') === 'dark';
-      document.body.classList.toggle('dark', isDark);
-      icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
-      icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-    });
+    // Load dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+      icon.src = 'assets/sun.svg';
+      icon.alt = 'Switch to Light Mode';
+    }
 
-    // Toggle dark mode
     toggle.addEventListener('click', () => {
-      const isDark = document.body.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
       icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
       icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+      localStorage.setItem('darkMode', isDark);
     });
   </script>
 </body>
