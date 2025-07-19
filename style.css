@@ -196,11 +196,6 @@ main section h2 {
   opacity: 0;
 }
 
-.floating-social img:hover {
-  transform: scale(1.15);
-  opacity: 1;
-}
-
 #darkModeToggle {
   background: var(--bubble-bg-light);
   border: none;
@@ -230,10 +225,6 @@ main section h2 {
   animation: fadeInUp 0.2s ease-out forwards;
   animation-delay: 0.1s;
   opacity: 0;
-}
-
-#darkModeToggle:hover {
-  background: #f0f0f0;
 }
 
 body.dark {
