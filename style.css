@@ -107,25 +107,38 @@ footer {
 }
 
 /* socials */
-.floating-social {
+.footer-bubble-wrapper {
   position: fixed;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #fff;
-  padding: 10px 15px;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 12px;
   z-index: 1000;
+}
+
+.floating-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .floating-social img {
   width: 24px;
   height: 24px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
   opacity: 0.9;
 }
 
@@ -134,7 +147,23 @@ footer {
   opacity: 1;
 }
 
-/* === Dark Mode === */
+#darkModeToggle {
+  background: #ffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background: #005fa3;
+}
+
+/* dark mode */
 body.dark {
   background-color: #121212;
   color: #ddd;
@@ -151,24 +180,6 @@ body.dark .floating-social {
   box-shadow: 0 4px 10px rgba(255,255,255,0.08);
 }
 
-/* === Dark Mode Toggle Button === */
-#darkModeToggle {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background: #007acc;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 18px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
-  z-index: 1001;
-}
-
-#darkModeToggle:hover {
-  background: #005fa3;
+body.dark .floating-social img {
+  filter: invert(100%);
 }
