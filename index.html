@@ -51,7 +51,28 @@
   </main>
 
   <footer>
+    <div class="floating-social">
+      <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+        <img src="assets/github.svg" alt="GitHub" />
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+        <img src="assets/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram">
+        <img src="assets/instagram.svg" alt="Instagram" />
+      </a>
+    </div>
+
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌓</button>
+
     <p>&copy; 2025 Luke Qiao. All rights reserved.</p>
   </footer>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>

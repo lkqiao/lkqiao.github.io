@@ -1,9 +1,10 @@
-/* Reset and base styles */
+/* reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,6 +19,7 @@ header {
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
+  animation: fadeIn 0.8s ease-out;
 }
 
 header h1 {
@@ -25,11 +27,18 @@ header h1 {
   margin-bottom: 10px;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 nav a {
-  margin: 0 10px;
+  margin: 0 12px;
   text-decoration: none;
   color: #444;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 nav a:hover {
@@ -43,6 +52,7 @@ main section {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.5s ease-out;
 }
 
 main section h2 {
@@ -62,4 +72,103 @@ footer {
   margin-top: 60px;
   color: #888;
   font-size: 0.9rem;
+  animation: fadeIn 1s ease-out;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    margin: 8px 6px;
+    font-size: 0.9rem;
+  }
+
+  main section {
+    padding: 15px;
+  }
+}
+
+/* socials */
+.floating-social {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-social img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+.floating-social img:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* === Dark Mode === */
+body.dark {
+  background-color: #121212;
+  color: #ddd;
+}
+
+body.dark header,
+body.dark main section {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+body.dark .floating-social {
+  background-color: #222;
+  box-shadow: 0 4px 10px rgba(255,255,255,0.08);
+}
+
+/* === Dark Mode Toggle Button === */
+#darkModeToggle {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  z-index: 1001;
+}
+
+#darkModeToggle:hover {
+  background: #005fa3;
 }
