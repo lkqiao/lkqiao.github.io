@@ -96,7 +96,7 @@ footer {
 
 .footer-bubble-wrapper {
   position: fixed;
-  bottom: 30px;
+  bottom: 6.5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -193,6 +193,7 @@ body.dark .floating-social img {
 
 body.dark #darkModeToggle {
   background: var(--bubble-bg-dark);
+  box-shadow: 0 4px 10px rgba(255,255,255,0.08);
 }
 
 body.dark #darkModeToggle img {
