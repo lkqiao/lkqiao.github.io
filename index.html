@@ -18,18 +18,18 @@
   </header>
 
   <main>
-    <section id="about" class="hidden">
+    <section id="about" class="load-hidden">
       <h2>About Me</h2>
       <p>I'm an engineer passionate about building creative, technical solutions — from hardware and signal processing to machine learning and music tech.</p>
     </section>
 
-    <section id="experience" class="hidden">
+    <section id="experience" class="load-hidden">
       <h2>Experience</h2>
       <p>You can view my resume below:</p>
       <embed src="assets/resume.pdf" type="application/pdf" width="100%" height="600px" />
     </section>
 
-    <section id="projects" class="hidden">
+    <section id="projects" class="load-hidden">
       <h2>Projects</h2>
       <div class="project">
         <h3>Project Title Placeholder</h3>
@@ -38,7 +38,7 @@
       </div>
     </section>
 
-    <section id="music" class="hidden">
+    <section id="music" class="load-hidden">
       <h2>Music</h2>
       <p>I also enjoy playing piano in my free time. Here's a selection of my performances:</p>
       <ul>
@@ -70,7 +70,7 @@
   </footer>
 
   <script>
-    // dark mode toggle
+    // Dark mode toggle
     const toggle = document.getElementById('darkModeToggle');
     const icon = document.getElementById('darkModeIcon');
 
@@ -81,20 +81,14 @@
       icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     });
 
-    // scroll-triggered section animation
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    // Loading animation for sections
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.load-hidden').forEach(section => {
+        section.classList.add('load-visible');
       });
-    }, {
-      threshold: 0.1
-    });
 
-    document.querySelectorAll('.hidden').forEach(section => {
-      observer.observe(section);
+      // Animate socials bar
+      document.querySelector('.footer-bubble-wrapper').classList.add('socials-visible');
     });
   </script>
 </body>
