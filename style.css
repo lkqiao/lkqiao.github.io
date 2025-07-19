@@ -127,13 +127,12 @@ footer {
   position: fixed;
   bottom: 30px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(20px);
   display: flex;
   align-items: center;
   gap: 12px;
   z-index: 1000;
   opacity: 0;
-  transform: translateX(-50%) translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -173,7 +172,7 @@ footer {
 
 /* dark mode */
 #darkModeToggle {
-  background: #fff;
+  background: var(--bg-white);
   border: none;
   border-radius: 50%;
   padding: 8px;
@@ -213,7 +212,6 @@ body.dark nav a:hover {
   color: var(--accent-color);
 }
 
-body.dark header,
 body.dark main section {
   background-color: var(--card-dark);
   box-shadow: var(--shadow-dark-light);
@@ -224,14 +222,12 @@ body.dark .floating-social {
   box-shadow: var(--shadow-dark-heavy);
 }
 
-body.dark .floating-social img {
-  filter: invert(100%);
-}
-
 body.dark #darkModeToggle {
-  background: #333;
+  background: var(--social-dark);
+  box-shadow: var(--shadow-dark-heavy);
 }
 
+body.dark .floating-social img,
 body.dark #darkModeToggle img {
   filter: invert(100%);
 }

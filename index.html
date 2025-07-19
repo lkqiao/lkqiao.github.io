@@ -81,13 +81,13 @@
       icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     });
 
-    // Loading animation for sections
+    // Loading animation on page load
     window.addEventListener('load', () => {
       document.querySelectorAll('.load-hidden').forEach(section => {
         section.classList.add('load-visible');
       });
 
-      // Animate socials bar
+      // Animate social bar
       document.querySelector('.footer-bubble-wrapper').classList.add('socials-visible');
     });
   </script>
