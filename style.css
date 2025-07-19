@@ -1,3 +1,4 @@
+/* reset and base styles */
 :root {
   --text-light: #222;
   --text-dark: #fff;
@@ -49,17 +50,25 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
 }
 
 nav a {
+  margin: 0 12px;
   text-decoration: none;
   color: var(--text-light);
   font-weight: 500;
   transition: color 0.3s;
 }
 
+nav a:visited {
+  color: var(--text-light);
+}
+
 nav a:hover {
+  color: var(--accent-color);
+}
+
+body.dark nav a:hover {
   color: var(--accent-color);
 }
 
@@ -96,14 +105,28 @@ footer {
 
 .footer-bubble-wrapper {
   position: fixed;
-  bottom: 6.5%;
+  bottom: 6.8%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 12px;
   z-index: 1000;
-  animation: fadeInUp 1s ease-out;
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeInBubble 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInBubble {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .floating-social {
@@ -135,6 +158,33 @@ footer {
   opacity: 1;
 }
 
+/* dark mode */
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark header h1,
+body.dark nav a,
+body.dark nav a:visited,
+body.dark main section h2 {
+  color: var(--text-dark);
+}
+
+body.dark main section {
+  background-color: var(--section-bg-dark);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+body.dark .floating-social {
+  background-color: var(--bubble-bg-dark);
+  box-shadow: 0 4px 10px rgba(255,255,255,0.08);
+}
+
+body.dark .floating-social img {
+  filter: invert(100%);
+}
+
 #darkModeToggle {
   background: var(--bubble-bg-light);
   border: none;
@@ -160,37 +210,6 @@ footer {
   background: #f0f0f0;
 }
 
-/* DARK MODE STYLES */
-body.dark {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-body.dark header h1,
-body.dark nav a,
-body.dark nav a:visited,
-body.dark main section h2 {
-  color: var(--text-dark);
-}
-
-body.dark nav a:hover {
-  color: var(--accent-color);
-}
-
-body.dark main section {
-  background-color: var(--section-bg-dark);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-}
-
-body.dark .floating-social {
-  background-color: var(--bubble-bg-dark);
-  box-shadow: 0 4px 10px rgba(255,255,255,0.08);
-}
-
-body.dark .floating-social img {
-  filter: invert(100%);
-}
-
 body.dark #darkModeToggle {
   background: var(--bubble-bg-dark);
   box-shadow: 0 4px 10px rgba(255,255,255,0.08);
@@ -200,7 +219,7 @@ body.dark #darkModeToggle img {
   filter: invert(100%);
 }
 
-/* ANIMATIONS */
+/* animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -211,7 +230,7 @@ body.dark #darkModeToggle img {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVE */
+/* responsive */
 @media (max-width: 600px) {
   body {
     padding: 10px;
