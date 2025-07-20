@@ -94,6 +94,7 @@ body {
 .sidebar h1 a {
   color: var(--text-light);
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .sidebar nav {
@@ -139,7 +140,7 @@ main {
   margin-left: var(--left-sidebar-width);
   flex: 1;
   padding: 40px;
-  width: calc(100% - --left-sidebar-width);
+  width: calc(100% - var(--left-sidebar-width));
   transition: margin-right 0.3s ease;
 }
 
@@ -175,6 +176,7 @@ main section h2 {
   animation: fadeInUp 0.6s ease-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
+  transition: background-color 0.3s;
 }
 
 .floating-social a {
@@ -246,7 +248,7 @@ main section h2 {
   width: var(--right-sidebar-width);
   background-color: var(--section-bg-light, #f9f9f9);
   box-shadow: -2px 0 5px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
   z-index: 900;
   transform: translateX(100%);
 }
@@ -255,20 +257,6 @@ main section h2 {
   transform: translateX(0);
   margin-right: -40px;
 }
-
-/* #sidebarToggle {
-  position: absolute;
-  left: -30px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
-  background: var(--accent-color, #333);
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px 0 0 4px;
-  z-index: 1001;
-} */
 
 .sidebar-content {
   padding: 20px;
@@ -298,7 +286,7 @@ body.has-right-sidebar.collapsed main {
   justify-content: center;
   align-items: center;
   padding: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s;
   z-index: 1001;
 }
 
@@ -309,8 +297,8 @@ body.has-right-sidebar.collapsed main {
   transition: filter 0.3s ease;
 }
 
-.bubble-toggle:hover {
-  transform: scale(1.05);
+.bubble-toggle img:hover {
+  filter: invert(40%);
 }
 
 /* Dark mode overrides */
@@ -321,6 +309,11 @@ body.dark {
 
 body.dark .sidebar {
   background-color: var(--section-bg-dark);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+body.dark .bubble-toggle img:hover {
+  filter: invert(60%);
 }
 
 body.dark .sidebar h1 a,
@@ -380,7 +373,7 @@ body.dark .bubble-toggle img {
 body.dark .right-sidebar {
   background-color: var(--section-bg-dark);
   color: var(--text-light);
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
 }
 
 body.dark .right-sidebar h3 {
