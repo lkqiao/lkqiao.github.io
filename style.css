@@ -301,11 +301,10 @@ body.has-right-sidebar.collapsed main {
   filter: invert(40%);
 }
 
-
 /* Inside Right Sidebar Carousel */
 .spotify-carousel-wrapper {
   position: relative;
-  padding: 10px 0 40px;
+  padding: 0 40px 0 0;
   overflow: hidden;
 }
 
@@ -335,12 +334,19 @@ body.has-right-sidebar.collapsed main {
 
 .right-sidebar .song-card {
   flex-shrink: 0;
-  width: 220px;
+  width: 200px;
+  height: 300px;
   background-color: #181818;
   border-radius: 12px;
   padding: 14px;
   color: #fff;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.right-sidebar .song-card .song-title {
+  font-size: 16.5px;
+  font-weight: 600;
 }
 
 .right-sidebar .song-card img {
@@ -377,7 +383,7 @@ body.has-right-sidebar.collapsed main {
 /* Scroll Arrows */
 .scroll-arrow {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.4);
   border: none;
@@ -402,12 +408,12 @@ body.has-right-sidebar.collapsed main {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 3px;
 }
 
 .dot-indicators .dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: #888;
   border-radius: 50%;
   transition: background-color 0.3s;
@@ -437,7 +443,7 @@ body.dark .sidebar nav a {
   color: var(--text-dark);
 }
 
-body, main, .sidebar nav a {
+body, main, .sidebar nav a, .sidebar-content {
   font-family: 'Inter', sans-serif;
 }
 
@@ -500,8 +506,14 @@ body.dark .sidebar-content {
   color: var(--text-dark);
 }
 
+body.dark .scroll-arrow {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
 body.dark .right-sidebar .song-card {
-  background-color: #1e1e1e;
+  background-color: var(--bg-dark);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
 }
 
 body.dark .right-sidebar .song-card p {

@@ -78,7 +78,7 @@ scrollRightBtn.addEventListener("click", () => {
 });
 
 function updateCarousel() {
-  const cardWidth = cards[0].offsetWidth + 24; // 24 is your horizontal gap
+  const cardWidth = cards[0].offsetWidth;
   carousel.scrollTo({
     left: currentIndex * cardWidth,
     behavior: "smooth"
