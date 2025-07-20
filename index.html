@@ -43,7 +43,39 @@
       <img src="assets/plus-menu.svg" alt="Toggle Sidebar" />
     </button>
     <div class="sidebar-content">
-      <p>This is your expandable sidebar.</p>
+      <h2>Currently Listening To</h2>
+      <div class="spotify-carousel-wrapper">
+        <button class="scroll-arrow left" id="scrollLeft">&#10094;</button>
+        
+        <div class="spotify-carousel" id="carousel">
+          <div class="carousel-track">
+            <div class="song-card">
+              <img src="assets/album1.jpeg" alt="Album 1" />
+              <div class="song-info">
+                <h4>Mr. Morale & the Big Steppers</h4>
+                <p>Kendrick Lamar</p>
+              </div>
+            </div>
+            <div class="song-card">
+              <img src="assets/album2.jpg" alt="Album 2" />
+              <div class="song-info">
+                <h4>Igor</h4>
+                <p>Tyler, The Creator</p>
+              </div>
+            </div>
+            <div class="song-card">
+              <img src="assets/album3.jpeg" alt="Album 3" />
+              <div class="song-info">
+                <h4>Stick Season</h4>
+                <p>Noah Kahan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="scroll-arrow right" id="scrollRight">&#10095;</button>
+        <div class="dot-indicators" id="dotIndicators"></div>
+      </div>
     </div>
   </div>
 
@@ -86,52 +118,8 @@
       </ul>
     </section>
   </main>
+  
+  <script src="main.js" defer></script>
 
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    const icon = document.getElementById('darkModeIcon');
-
-    // Load dark mode preference
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark');
-      icon.src = 'assets/sun.svg';
-      icon.alt = 'Switch to Light Mode';
-    }
-
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      const isDark = document.body.classList.contains('dark');
-      icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
-      icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-      localStorage.setItem('darkMode', isDark);
-    });
-    
-    const toggleBtn = document.getElementById('sidebarToggle');
-    const sidebar = document.getElementById('rightSidebar');
-    const body = document.body;
-
-    body.classList.add('has-right-sidebar');
-
-    // Reflect initial collapsed state
-    if (sidebar.classList.contains('collapsed')) {
-      body.classList.add('collapsed');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const isCollapsed = sidebar.classList.contains('collapsed');
-      const icon = toggleBtn.querySelector('img');
-      icon.src = isCollapsed ? 'assets/plus-menu.svg' : 'assets/minus-menu.svg';
-      icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
-    });
-
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('collapsed');
-      body.classList.toggle('collapsed');
-      const isCollapsed = sidebar.classList.contains('collapsed');
-      const icon = toggleBtn.querySelector('img');
-      icon.src = isCollapsed ? 'assets/plus-menu.svg' : 'assets/minus-menu.svg';
-      icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
-    });
-  </script>
 </body>
 </html>
