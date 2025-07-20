@@ -8,7 +8,8 @@
   --section-bg-dark: #1e1e1e;
   --bubble-bg-light: #f7f8fa;
   --bubble-bg-dark: #333333;
-  --sidebar-width: 20%;
+  --left-sidebar-width: 20%;
+  --right-sidebar-width: 35%;
 }
 
 * {
@@ -48,7 +49,7 @@ body {
 }
 
 .sidebar {
-  width: var(--sidebar-width);
+  width: var(--left-sidebar-width);
   padding: 30px 20px;
   background-color: var(--section-bg-light);
   display: flex;
@@ -139,10 +140,11 @@ body {
 }
 
 main {
-  margin-left: var(--sidebar-width);
+  margin-left: var(--left-sidebar-width);
   flex: 1;
   padding: 40px;
-  width: calc(100% - --sidebar-width);
+  width: calc(100% - --left-sidebar-width);
+  transition: margin-right 0.3s ease;
 }
 
 main section {
@@ -237,6 +239,93 @@ main section h2 {
 
 #darkModeToggle img:hover {
   filter: invert(40%);
+}
+
+/* --- Right Sidebar --- */
+.right-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: var(--right-sidebar-width);
+  background-color: var(--section-bg-light, #f9f9f9);
+  box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  z-index: 900;
+  transform: translateX(100%);
+}
+
+.right-sidebar:not(.collapsed) {
+  transform: translateX(0);
+  margin-right: -40px;
+}
+
+/* #sidebarToggle {
+  position: absolute;
+  left: -30px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background: var(--accent-color, #333);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px 0 0 4px;
+  z-index: 1001;
+} */
+
+.sidebar-content {
+  padding: 20px;
+}
+
+body.has-right-sidebar main {
+  margin-right: var(--right-sidebar-width);
+  transition: margin-right 0.3s ease;
+}
+
+body.has-right-sidebar.collapsed main {
+  margin-right: 40px;
+}
+
+.bubble-toggle {
+  position: absolute;
+  left: -50px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  background: var(--bubble-bg, #f0f0f0);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  transition: transform 0.3s ease;
+  z-index: 1001;
+}
+
+.bubble-toggle img {
+  width: 20px;
+  height: 20px;
+  filter: var(--icon-filter-light);
+  transition: filter 0.3s ease;
+}
+
+.bubble-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* Dark mode overrides */
+body.dark .bubble-toggle {
+  background: var(--bubble-bg-dark, #1e1e1e);
+  box-shadow: 0 4px 10px rgba(255,255,255,0.08);
+}
+
+body.dark .bubble-toggle img {
+  filter: var(--icon-filter-dark);
+  filter: invert(100%);
 }
 
 body.dark {

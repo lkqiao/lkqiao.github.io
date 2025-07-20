@@ -38,6 +38,15 @@
     </div>
   </aside>
 
+  <div class="right-sidebar collapsed" id="rightSidebar">
+    <button id="sidebarToggle" class="bubble-toggle">
+      <img src="assets/plus-menu.svg" alt="Toggle Sidebar" />
+    </button>
+    <div class="sidebar-content">
+      <p>This is your expandable sidebar.</p>
+    </div>
+  </div>
+
   <main>
     <section id="about">
       <h2>About Me</h2>
@@ -86,6 +95,33 @@
       icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
       icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
       localStorage.setItem('darkMode', isDark);
+    });
+    
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('rightSidebar');
+    const body = document.body;
+
+    body.classList.add('has-right-sidebar');
+
+    // Reflect initial collapsed state
+    if (sidebar.classList.contains('collapsed')) {
+      body.classList.add('collapsed');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const isCollapsed = sidebar.classList.contains('collapsed');
+      const icon = toggleBtn.querySelector('img');
+      icon.src = isCollapsed ? 'assets/plus-menu.svg' : 'assets/minus-menu.svg';
+      icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
+    });
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      body.classList.toggle('collapsed');
+      const isCollapsed = sidebar.classList.contains('collapsed');
+      const icon = toggleBtn.querySelector('img');
+      icon.src = isCollapsed ? 'assets/plus-menu.svg' : 'assets/minus-menu.svg';
+      icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
     });
   </script>
 </body>
