@@ -458,6 +458,7 @@ body.has-right-sidebar.collapsed main {
   flex-shrink: 0;
   object-fit: cover;
   transition: transform 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
 }
 
 .photo-track img:hover {
@@ -495,6 +496,10 @@ body.dark .photo-gallery-wrapper .scroll-arrow {
 
 body.dark .photo-gallery-wrapper .scroll-arrow:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+body.dark .photo-gallery img {
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
 }
 
 body.dark {
