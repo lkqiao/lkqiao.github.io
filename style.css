@@ -239,7 +239,6 @@ main section h2 {
   filter: invert(40%);
 }
 
-/* --- Right Sidebar --- */
 .right-sidebar {
   position: fixed;
   top: 0;
@@ -301,7 +300,6 @@ body.has-right-sidebar.collapsed main {
   filter: invert(40%);
 }
 
-/* Inside Right Sidebar Carousel */
 .spotify-carousel-wrapper {
   position: relative;
   padding: 0 40px 0 0;
@@ -380,7 +378,6 @@ body.has-right-sidebar.collapsed main {
   cursor: pointer;
 }
 
-/* Scroll Arrows */
 .scroll-arrow {
   position: absolute;
   top: 45%;
@@ -423,7 +420,83 @@ body.has-right-sidebar.collapsed main {
   background-color: #1db954;
 }
 
-/* Dark mode overrides */
+.photo-gallery-wrapper {
+  position: relative;
+  padding: 0 40px 0 0;
+  margin-top: 15px;
+}
+
+.photo-gallery {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 0;
+  display: flex;
+}
+
+.photo-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-track {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.photo-track::after {
+  content: '';
+  display: block;
+  width: 10px;
+  flex-shrink: 0;
+}
+
+.photo-track img {
+  height: 230px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-track img:hover {
+  transform: scale(1.05);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.photo-gallery-wrapper .scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 28px;
+  width: 36px;
+  height: 60px;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.photo-gallery-wrapper .scroll-arrow.left {
+  left: 3%;
+}
+
+.photo-gallery-wrapper .scroll-arrow.right {
+  right: 10%;
+}
+
+body.dark .photo-gallery-wrapper .scroll-arrow {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.dark .photo-gallery-wrapper .scroll-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 body.dark {
   background-color: var(--bg-dark);
   color: var(--text-dark);

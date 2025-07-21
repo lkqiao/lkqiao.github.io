@@ -90,5 +90,18 @@ function updateCarousel() {
   }
 }
 
+// ==== PHOTO GALLERY ====
+const photoGallery = document.getElementById("photoGallery");
+const galleryScrollLeft = document.getElementById("galleryScrollLeft");
+const galleryScrollRight = document.getElementById("galleryScrollRight");
+
+galleryScrollLeft.addEventListener("click", () => {
+  photoGallery.scrollBy({ left: -240, behavior: "smooth" });
+});
+
+galleryScrollRight.addEventListener("click", () => {
+  photoGallery.scrollBy({ left: 150, behavior: "smooth" });
+});
+
 // Initialize state on page load
 updateCarousel();
