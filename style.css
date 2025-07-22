@@ -248,7 +248,7 @@ main section h2 {
   width: var(--right-sidebar-width);
   background-color: var(--section-bg-light, #f9f9f9);
   box-shadow: -2px 0 5px rgba(0,0,0,0.05);
-  transition: transform var(--right-sidebar-transition-duration) ease, background-color 0.3s, color 0.3s;
+  transition: transform var(--right-sidebar-transition-duration) ease, margin-right var(--right-sidebar-transition-duration) ease, background-color 0.3s, color 0.3s;
   z-index: 900;
   transform: translateX(100%);
 }
