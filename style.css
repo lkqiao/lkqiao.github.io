@@ -327,13 +327,13 @@ body.has-right-sidebar.collapsed main {
   content: '';
   display: block;
   flex-shrink: 0;
-  width: 50px;
+  width: 2px;
 }
 
 .right-sidebar .song-card {
   flex-shrink: 0;
   width: 200px;
-  height: 300px;
+  height: 290px;
   background-color: #181818;
   border-radius: 12px;
   padding: 14px;
@@ -380,7 +380,7 @@ body.has-right-sidebar.collapsed main {
 
 .scroll-arrow {
   position: absolute;
-  top: 45%;
+  top: 1.5%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.4);
   border: none;
@@ -405,7 +405,7 @@ body.has-right-sidebar.collapsed main {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 3px;
+  margin-top: 10000px;
 }
 
 .dot-indicators .dot {
@@ -423,7 +423,6 @@ body.has-right-sidebar.collapsed main {
 .photo-gallery-wrapper {
   position: relative;
   padding: 0 40px 0 0;
-  margin-top: 15px;
 }
 
 .photo-gallery {
@@ -442,18 +441,28 @@ body.has-right-sidebar.collapsed main {
   display: flex;
   gap: 16px;
   align-items: center;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
 .photo-track::after {
   content: '';
   display: block;
-  width: 10px;
   flex-shrink: 0;
 }
 
-.photo-track img {
-  height: 230px;
+.photo-track .photo-card {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-track .photo-card img {
+  height: 250px;
   border-radius: 8px;
   flex-shrink: 0;
   object-fit: cover;
@@ -461,9 +470,8 @@ body.has-right-sidebar.collapsed main {
   box-shadow: 2px 0 5px rgba(0,0,0,0.05);
 }
 
-.photo-track img:hover {
+.photo-track .photo-card:hover {
   transform: scale(1.05);
-  border-radius: 8px;
   cursor: pointer;
 }
 
