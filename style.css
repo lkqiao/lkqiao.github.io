@@ -264,7 +264,7 @@ main section h2 {
 
 body.has-right-sidebar main {
   margin-right: var(--right-sidebar-width);
-  transition: margin-right 0.3s ease;
+  transition: margin-right var(--right-sidebar-transition-duration) ease;
 }
 
 body.has-right-sidebar.collapsed main {
