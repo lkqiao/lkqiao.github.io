@@ -10,6 +10,7 @@
   --bubble-bg-dark: #333333;
   --left-sidebar-width: 20%;
   --right-sidebar-width: 35%;
+  --right-sidebar-transition-duration: 0.45s;
 }
 
 * {
@@ -141,7 +142,7 @@ main {
   flex: 1;
   padding: 40px;
   width: calc(100% - var(--left-sidebar-width));
-  transition: margin-right 0.3s ease;
+  transition: margin-right var(--right-sidebar-transition-duration) ease;
 }
 
 main section {
@@ -247,7 +248,7 @@ main section h2 {
   width: var(--right-sidebar-width);
   background-color: var(--section-bg-light, #f9f9f9);
   box-shadow: -2px 0 5px rgba(0,0,0,0.05);
-  transition: transform 0.35s ease, background-color 0.3s, color 0.3s;
+  transition: transform var(--right-sidebar-transition-duration) ease, background-color 0.3s, color 0.3s;
   z-index: 900;
   transform: translateX(100%);
 }
