@@ -255,7 +255,7 @@ main section h2 {
 
 .right-sidebar:not(.collapsed) {
   transform: translateX(0);
-  margin-right: -40px;
+  margin-right: 0;
 }
 
 .sidebar-content {
