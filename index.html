@@ -26,12 +26,12 @@
     <div class="sidebar-bottom">
       <div class="bottom-row">
         <div class="floating-social">
-          <a href="https://github.com/lkqiao" target="_blank"><img src="assets/github.svg" alt="GitHub" /></a>
-          <a href="https://www.linkedin.com/in/luke-qiao/" target="_blank"><img src="assets/linkedin.svg" alt="LinkedIn" /></a>
-          <a href="https://www.instagram.com/chowpawn/" target="_blank"><img src="assets/instagram.svg" alt="Instagram" /></a>
+          <a href="https://github.com/lkqiao" target="_blank"><img src="assets/icons/github.svg" alt="GitHub" /></a>
+          <a href="https://www.linkedin.com/in/luke-qiao/" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+          <a href="https://www.instagram.com/chowpawn/" target="_blank"><img src="assets/icons/instagram.svg" alt="Instagram" /></a>
         </div>
         <button id="darkModeToggle">
-          <img id="darkModeIcon" src="assets/moon.svg" alt="Toggle Theme" />
+          <img id="darkModeIcon" src="assets/icons/moon.svg" alt="Toggle Theme" />
         </button>
       </div>
       <p class="footer-text">© 2025 Luke Qiao. All rights reserved.</p>
@@ -40,7 +40,7 @@
 
   <div class="right-sidebar collapsed" id="rightSidebar">
     <button id="sidebarToggle" class="bubble-toggle">
-      <img src="assets/plus-menu.svg" alt="Toggle Sidebar" />
+      <img src="assets/icons/plus-menu.svg" alt="Toggle Sidebar" />
     </button>
     <div class="sidebar-content">
       <h2>Photos</h2>
@@ -173,8 +173,89 @@
 
     <section id="experience">
       <h2>Experience</h2>
-      <p>Coming soon!</p>
-      <!-- <embed src="assets/resume.pdf" type="application/pdf" width="100%" height="600px" /> -->
+      <div class="experience-item" style="animation-delay: 0.3s;">
+        <div class="experience-header" onclick="toggleExperience(this)">
+          <div class="experience-meta">
+            <img class="experience-logo" src="assets/logos/sandia.png" alt="Sandia Logo" />
+
+            <div class="experience-info">
+              <div class="row-top">
+                <span class="company-name">Sandia National Laboratories</span>
+                <span class="position-title">R&D Intern, III-V Microelectronics Group</span>
+              </div>
+              <div class="row-bottom">
+                <span class="location">Albuquerque, NM</span>
+                <span class="dates">June 2025 - Present</span>
+              </div>
+            </div>
+          </div>
+          <img class="dropdown-icon" src="assets/icons/experience-dropdown.svg" alt="Expand" />
+        </div>
+        <div class="experience-divider"></div>
+        <ul class="experience-details">
+          <li>Currently designing high-fidelity <strong>analog/RF + mixed-signal PCBs and ICs</strong> and improving <strong>device 
+            noise modeling</strong> for simulations using LTSpice, Altium Designer, and Siemens Tanner EDA Suite</li>
+        </ul>
+      </div>
+
+      <div class="experience-item" style="animation-delay: 0.5s;">
+        <div class="experience-header" onclick="toggleExperience(this)">
+          <div class="experience-meta">
+            <img class="experience-logo" src="assets/logos/apple.png" alt="Apple Logo" />
+
+            <div class="experience-info">
+              <div class="row-top">
+                <span class="company-name">Apple</span>
+                <span class="position-title">CAD Intern, Silicon Engineering Group</span>
+              </div>
+              <div class="row-bottom">
+                <span class="location">Santa Clara, CA</span>
+                <span class="dates">Jun - Sep 2024</span>
+              </div>
+            </div>
+          </div>
+          <img class="dropdown-icon" src="assets/icons/experience-dropdown.svg" alt="Expand" />
+        </div>
+        <div class="experience-divider"></div>
+        <ul class="experience-details">
+          <li>Built <strong>machine learning (ML) models</strong> in Python to reduce <strong>physical design verification 
+            (PDV)</strong> algorithm runtime <strong>(50% decrease)</strong> via optimal CPU allocation; deployed to production 
+            as a useful tool in Apple's design flow</li>
+          <li>Developed <strong>multithreaded</strong> heuristic algorithms for efficient automated data collection; trained 
+            <strong>neural networks & mathematical models</strong> for PDV runtime prediction <strong>(5% error)</strong></li>
+          <li>Gained technical experience in <strong>VLSI, Verilog</strong>, and <strong>physical layout</strong>; presented project 
+            to high-level Apple SEG executives </li>
+        </ul>
+      </div>
+
+      <div class="experience-item" style="animation-delay: 0.7s;">
+        <div class="experience-header" onclick="toggleExperience(this)">
+          <div class="experience-meta">
+            <img class="experience-logo" src="assets/logos/stanford-rg.png" alt="Stanford Radio Glaciology Logo" />
+
+            <div class="experience-info">
+              <div class="row-top">
+                <span class="company-name">Stanford Radio Glaciology Research Group</span>
+                <span class="position-title">Undergraduate Researcher</span>
+              </div>
+              <div class="row-bottom">
+                <span class="location">Stanford University</span>
+                <span class="dates">Feb - Jun 2025</span>
+              </div>
+            </div>
+          </div>
+          <img class="dropdown-icon" src="assets/icons/experience-dropdown.svg" alt="Expand" />
+        </div>
+        <div class="experience-divider"></div>
+        <ul class="experience-details">
+          <li>Leveraging multistatic <strong>ApRES radar</strong> for ice temperature & bed material estimation and high-res bed 
+            topography imaging</li>
+          <li>Optimized onboard signal processing; mixed chirped Tx/Rx signals, applied <strong>LPF and FFT</strong> for object 
+            depth estimation</li>
+          <li>Tested and characterized various <strong>bowtie antenna</strong> designs; deployed <strong>RFoF</strong> links to mitigate coaxial attenuation loss and impedance mismatch</li>
+          <li>Performed <strong>coherent phase-aligned averaging</strong> to enhance SNR across trials</li>
+        </ul>
+      </div>
     </section>
 
     <section id="projects">

@@ -651,3 +651,162 @@ body.dark .dot-indicators .dot.active {
     width: 100%;
   }
 }
+
+.experience-item {
+  padding-bottom: 0.1rem;
+  animation: fadeInUp 0.6s ease-out both;
+  animation-delay: 0.3s;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.experience-header:hover {
+  color: var(--accent-color);
+}
+
+.dropdown-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+  filter: invert(0%);
+}
+
+.experience-header:hover .dropdown-icon {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(92%) saturate(747%) hue-rotate(175deg) brightness(96%) contrast(92%);
+}
+
+.experience-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+  width: 100%;
+}
+
+.experience-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-top: 4px;
+  filter: grayscale(30%);
+  transition: filter 0.5s ease;
+  will-change: background-color, filter;
+}
+
+body.dark .experience-logo[src*="apple.png"] {
+  filter: invert(1);
+}
+
+.experience-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.row-top, .row-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.company-name, .position-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.position-title {
+  text-align: right;
+}
+
+.location, .dates {
+  font-size: 1rem;
+  color: #777;
+  font-weight: 500;
+}
+
+body.dark .location,
+body.dark .dates {
+  color: #aaa;
+}
+
+.experience-details {
+  list-style-type: disc;
+  padding-left: 80px;
+  margin-top: 0.6rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding-bottom 0.65s ease;
+}
+
+.experience-details.fading-in {
+  opacity: 0;
+}
+
+.experience-details.visible {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.experience-item.active .experience-details {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+  padding-bottom: 30px;
+}
+
+.experience-item.active .dropdown-icon {
+  transform: rotate(90deg);
+}
+
+.experience-divider {
+  height: 1px;
+  background-color: #ccc;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  margin: 12px 0;
+}
+
+.experience-item.active .experience-divider {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+body.dark .dropdown-icon {
+  filter: invert(100%);
+}
+
+body.dark .experience-item {
+  border-color: #444;
+}
+
+body.dark .experience-header:hover .dropdown-icon {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(92%) saturate(747%) hue-rotate(175deg) brightness(96%) contrast(92%);
+}
+
+@keyframes bulletFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.experience-details li {
+  opacity: 0;
+  margin-bottom: 3px;
+  animation: bulletFadeIn 0.4s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}

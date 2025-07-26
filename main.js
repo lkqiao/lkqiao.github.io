@@ -4,14 +4,14 @@ const icon = document.getElementById('darkModeIcon');
 
 if (localStorage.getItem('darkMode') === 'true') {
   document.body.classList.add('dark');
-  icon.src = 'assets/sun.svg';
+  icon.src = 'assets/icons/sun.svg';
   icon.alt = 'Switch to Light Mode';
 }
 
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   const isDark = document.body.classList.contains('dark');
-  icon.src = isDark ? 'assets/sun.svg' : 'assets/moon.svg';
+  icon.src = isDark ? 'assets/icons/sun.svg' : 'assets/icons/moon.svg';
   icon.alt = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
   localStorage.setItem('darkMode', isDark);
 });
@@ -30,7 +30,7 @@ if (sidebar.classList.contains('collapsed')) {
 window.addEventListener('DOMContentLoaded', () => {
   const isCollapsed = sidebar.classList.contains('collapsed');
   const icon = toggleBtn.querySelector('img');
-  icon.src = isCollapsed ? 'assets/plus-menu.svg' : 'assets/minus-menu.svg';
+  icon.src = isCollapsed ? 'assets/icons/plus-menu.svg' : 'assets/icons/minus-menu.svg';
   icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
 });
 
@@ -39,7 +39,7 @@ toggleBtn.addEventListener('click', () => {
   body.classList.toggle('collapsed');
   const isCollapsed = sidebar.classList.contains('collapsed');
   const icon = toggleBtn.querySelector('img');
-  icon.src = isCollapsed ? 'assets/plus-menu.svg' : 'assets/minus-menu.svg';
+  icon.src = isCollapsed ? 'assets/icons/plus-menu.svg' : 'assets/icons/minus-menu.svg';
   icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
 });
 
@@ -102,6 +102,51 @@ galleryScrollLeft.addEventListener("click", () => {
 galleryScrollRight.addEventListener("click", () => {
   photoGallery.scrollBy({ left: 150, behavior: "smooth" });
 });
+
+// ==== EXPERIENCE SECTION TOGGLE ====
+function toggleExperience(header) {
+  const item = header.closest('.experience-item');
+  const details = item.querySelector('.experience-details');
+  const bullets = details.querySelectorAll('li');
+  const isExpanding = !item.classList.contains('active');
+
+  if (isExpanding) {
+    item.classList.add('active');
+
+    // Reset li styles
+    bullets.forEach((li) => {
+      li.style.animation = 'none';
+      li.offsetHeight;
+    });
+
+    // Fade in bullets with stagger
+    bullets.forEach((li, i) => {
+      li.style.animation = 'bulletFadeIn 0.4s ease-out forwards';
+      li.style.animationDelay = `${0.2 + i * 0.08}s`;
+    });
+
+  } else {
+    // Fade out the container as a whole
+    details.style.opacity = '0';
+    details.style.maxHeight = '0px';
+    details.style.paddingBottom = '0px';
+
+    // Remove .active after transition completes
+    setTimeout(() => {
+      item.classList.remove('active');
+
+      // Reset everything
+      details.style.opacity = '';
+      details.style.maxHeight = '';
+      details.style.paddingBottom = '';
+      bullets.forEach((li) => {
+        li.style.opacity = 0;
+        li.style.animation = '';
+        li.style.animationDelay = '';
+      });
+    }, 150); // match transition timing
+  }
+}
 
 // Initialize state on page load
 updateCarousel();
