@@ -693,8 +693,8 @@ body.dark .dot-indicators .dot.active {
 }
 
 .experience-logo {
-  width: 10px;
-  height: 10px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
   border-radius: 6px;
   margin-top: 4px;
