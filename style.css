@@ -696,13 +696,19 @@ body.dark .dot-indicators .dot.active {
   width: 45px;
   height: 45px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 10px;
   margin-top: 4px;
   filter: grayscale(30%);
   transition: filter 0.5s ease;
   will-change: background-color, filter;
 }
 
+.experience-logo[src*="cvss.png"],
+.experience-logo[src*="aylus.png"] {
+  background-color: white;
+}
+
+body.dark .experience-logo[src*="volunteering.png"],
 body.dark .experience-logo[src*="apple.png"] {
   filter: invert(1);
 }
@@ -762,7 +768,7 @@ body.dark .dates {
 }
 
 .experience-item.active .experience-details {
-  max-height: 500px;
+  max-height: 550px;
   opacity: 1;
   pointer-events: auto;
   padding-bottom: 30px;
