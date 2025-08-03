@@ -826,6 +826,7 @@ body.dark .experience-header:hover .dropdown-icon {
 #music a.link-plain:hover,
 #music a.link-plain:focus-visible {
   text-decoration-thickness: 2px;
+  color: var(--accent-color);
 }
 
 .video-wrap {
