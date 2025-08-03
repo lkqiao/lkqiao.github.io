@@ -71,48 +71,14 @@ if (backdrop) {
 const carousel = document.getElementById("carousel");
 const scrollLeftBtn = document.getElementById("scrollLeft");
 const scrollRightBtn = document.getElementById("scrollRight");
-const dotContainer = document.getElementById("dotIndicators");
-const cards = carousel.querySelectorAll(".song-card");
 
-let currentIndex = 0;
-
-// Generate dot indicators
-cards.forEach((_, index) => {
-  const dot = document.createElement("div");
-  dot.classList.add("dot");
-  if (index === 0) dot.classList.add("active");
-  dotContainer.appendChild(dot);
-});
-
-const dots = dotContainer.querySelectorAll(".dot");
-
-// Scroll + update dots on arrow click
 scrollLeftBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
-  }
+  carousel.scrollBy({ left: -240, behavior: "smooth" });
 });
 
 scrollRightBtn.addEventListener("click", () => {
-  if (currentIndex < cards.length - 1) {
-    currentIndex++;
-    updateCarousel();
-  }
+  carousel.scrollBy({ left: 240, behavior: "smooth" });
 });
-
-function updateCarousel() {
-  const cardWidth = cards[0].offsetWidth;
-  carousel.scrollTo({
-    left: currentIndex * cardWidth,
-    behavior: "smooth"
-  });
-
-  dots.forEach(dot => dot.classList.remove("active"));
-  if (dots[currentIndex]) {
-    dots[currentIndex].classList.add("active");
-  }
-}
 
 // ==== PHOTO GALLERY ====
 const photoGallery = document.getElementById("photoGallery");
@@ -124,7 +90,7 @@ galleryScrollLeft.addEventListener("click", () => {
 });
 
 galleryScrollRight.addEventListener("click", () => {
-  photoGallery.scrollBy({ left: 150, behavior: "smooth" });
+  photoGallery.scrollBy({ left: 240, behavior: "smooth" });
 });
 
 // ==== EXPERIENCE SECTION TOGGLE ====

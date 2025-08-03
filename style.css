@@ -833,18 +833,6 @@ body.dark .experience-header:hover .dropdown-icon {
   animation-delay: var(--delay, 0s);
 }
 
-#music a.link-plain {
-  color: currentColor; 
-  text-decoration: underline; 
-  text-underline-offset: 2px;
-}
-
-#music a.link-plain:hover,
-#music a.link-plain:focus-visible {
-  text-decoration-thickness: 2px;
-  color: var(--accent-color);
-}
-
 .video-wrap {
   max-width: 800px;
   margin: 24px auto;
@@ -871,7 +859,7 @@ body.dark .video-wrap {
   padding: 6px;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-  margin-top: -4px;
+  margin-top: -6px;
 }
 
 body.dark .resume-download-btn {
@@ -879,13 +867,13 @@ body.dark .resume-download-btn {
 }
 
 .resume-download-btn img {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   vertical-align: middle;
   filter: grayscale(40%);
   transition: filter 0.3s ease;
   position: relative;
-  top: -4px;
+  top: -6px;
 }
 
 .resume-download-btn:hover img {
@@ -894,4 +882,58 @@ body.dark .resume-download-btn {
 
 body.dark .resume-download-btn:hover img {
   filter: invert(60%);
+}
+
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  margin-top: -6px;
+}
+
+body.dark .youtube-btn {
+  filter: invert(100%);
+}
+
+.youtube-btn img {
+  width: 42px;
+  height: 42px;
+  vertical-align: middle;
+  filter: grayscale(40%);
+  transition: filter 0.3s ease;
+  position: relative;
+  top: -6px;
+}
+
+.youtube-btn:hover img {
+  filter: invert(40%);
+}
+
+body.dark .youtube-btn:hover img {
+  filter: invert(60%);
+}
+
+.video-box {
+  background-color: #eaebed89;
+  border-radius: 12px;
+  padding: 15px;
+  padding-bottom: 1px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
+}
+
+body.dark .video-box {
+  background-color: var(--bg-dark);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.05);
+}
+
+.video-divider {
+  height: 2px;
+  width: 75%;
+  background-color: rgb(0, 0, 0);
+  margin: 10px auto;
 }
