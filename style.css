@@ -863,3 +863,35 @@ body.dark .video-wrap {
   aspect-ratio: 16 / 9;
   border: 0;
 }
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  margin-top: -4px;
+}
+
+body.dark .resume-download-btn {
+  filter: invert(100%);
+}
+
+.resume-download-btn img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  filter: grayscale(40%);
+  transition: filter 0.3s ease;
+  position: relative;
+  top: -4px;
+}
+
+.resume-download-btn:hover img {
+  filter: invert(40%);
+}
+
+body.dark .resume-download-btn:hover img {
+  filter: invert(60%);
+}
