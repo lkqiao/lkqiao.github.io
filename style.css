@@ -816,3 +816,33 @@ body.dark .experience-header:hover .dropdown-icon {
   animation: bulletFadeIn 0.4s ease-out forwards;
   animation-delay: var(--delay, 0s);
 }
+
+#music a.link-plain {
+  color: currentColor; 
+  text-decoration: underline; 
+  text-underline-offset: 2px;
+}
+
+#music a.link-plain:hover,
+#music a.link-plain:focus-visible {
+  text-decoration-thickness: 2px;
+}
+
+.video-wrap {
+  max-width: 800px;
+  margin: 24px auto;
+  border-radius: 10px;  
+  overflow: hidden; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .video-wrap {
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
