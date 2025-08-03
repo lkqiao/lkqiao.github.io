@@ -142,7 +142,6 @@ main {
   flex: 1;
   padding: 40px;
   width: calc(100% - var(--left-sidebar-width));
-  transition: margin-right var(--right-sidebar-transition-duration) ease;
 }
 
 main section {
@@ -263,12 +262,29 @@ main section h2 {
 }
 
 body.has-right-sidebar main {
-  margin-right: var(--right-sidebar-width);
   transition: margin-right var(--right-sidebar-transition-duration) ease;
 }
 
-body.has-right-sidebar.collapsed main {
-  margin-right: 40px;
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(78, 78, 78, 0.15);
+  z-index: 850;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+body.dark .sidebar-backdrop {
+  background: rgba(0,0,0,0.45);
+}
+
+body.sidebar-open .sidebar-backdrop {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .bubble-toggle {
