@@ -915,18 +915,3 @@ body.dark .youtube-btn {
 body.dark .youtube-btn:hover img {
   filter: invert(60%);
 }
-
-.video-box {
-  background-color: #eaebed89;
-  border-radius: 12px;
-  padding: 15px;
-  padding-bottom: 1px;
-  margin-bottom: 40px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s;
-}
-
-body.dark .video-box {
-  background-color: var(--bg-dark);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.05);
-}
