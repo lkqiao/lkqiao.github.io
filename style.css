@@ -992,3 +992,13 @@ body.dark .youtube-btn:hover img {
   font-size: 1.12rem;
   line-height: 1.6;
 }
+
+.email-link {
+  color: inherit; 
+  text-decoration: none; 
+  cursor: pointer;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
