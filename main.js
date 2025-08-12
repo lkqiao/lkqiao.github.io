@@ -299,23 +299,34 @@ if (videoGallery && videoScrollLeft && videoScrollRight) {
 // ==== Email Link ====
 document.getElementById("emailLink").addEventListener("click", function (e) {
   e.preventDefault();
+  
   const email = "lkqiao@stanford.edu";
   const subject = "";
   const body = "";
 
-  // Detect Gmail in browser
-  if (window.location.hostname.includes("gmail.com") || navigator.userAgent.includes("Chrome")) {
-    // Open Gmail compose in a new tab
-    window.open(
+  function openEmail(email, subject, body) {
+    // Try Gmail
+    let gmailWin = window.open(
       `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
       "_blank"
     );
-  } else {
-    // Fallback to mailto
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
-});
 
+    if (!gmailWin) {
+      // Gmail failed, try Outlook
+      let outlookWin = window.open(
+        `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(email)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+        "_blank"
+      );
+
+      if (!outlookWin) {
+        // Outlook failed, fall back to mailto
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+    }
+  }
+
+  openEmail(email, subject, body);
+});
 
 // Initialize state on page load
 updateCarousel();
