@@ -481,6 +481,7 @@ body.sidebar-open .sidebar-backdrop {
 }
 
 .photo-card .photo-caption {
+  font-family: 'Inter', sans-serif;
   display: inline-block;
   position: absolute;
   margin-bottom: 5px;
