@@ -129,6 +129,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  margin-bottom: 10px;
 }
 
 .footer-text {
@@ -209,8 +210,8 @@ main section h2 {
   background: var(--bubble-bg-light);
   border: none;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
