@@ -471,12 +471,47 @@ body.sidebar-open .sidebar-backdrop {
 .photo-track .photo-card {
   width: auto;
   height: auto;
+  position: relative;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card .photo-caption {
+  display: inline-block;
+  position: absolute;
+  margin-bottom: 5px;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, 8px);
+  padding: 6px 12px;
+  border-radius: 10px;    
+  background: rgba(255, 255, 255, 0.6);
+  color: #111;
+  font-size: clamp(0.75rem, 1vw, 0.95rem); 
+  line-height: 1.2;
+  white-space: nowrap;   
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease, background-color 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.photo-track .photo-card:hover .photo-caption,
+.photo-track .photo-card.show-caption .photo-caption {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+body.dark .photo-card .photo-caption {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,255,255,0.06);
 }
 
 .photo-track .photo-card img {
@@ -837,6 +872,16 @@ body.dark .experience-header:hover .dropdown-icon {
 .video-gallery-wrapper {
   position: relative;
   padding: 0; 
+  background-color: var(--bubble-bg-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+body.dark .video-gallery-wrapper {
+  background-color: #222222;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
 }
 
 .video-gallery {

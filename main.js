@@ -80,6 +80,13 @@ scrollRightBtn.addEventListener("click", () => {
   carousel.scrollBy({ left: 240, behavior: "smooth" });
 });
 
+document.querySelectorAll(".song-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const url = card.dataset.url;
+    if (url) window.open(url, "_blank");
+  });
+});
+
 // ==== PHOTO GALLERY ====
 const photoGallery = document.getElementById("photoGallery");
 const galleryScrollLeft = document.getElementById("galleryScrollLeft");
@@ -92,6 +99,37 @@ galleryScrollLeft.addEventListener("click", () => {
 galleryScrollRight.addEventListener("click", () => {
   photoGallery.scrollBy({ left: 240, behavior: "smooth" });
 });
+
+(function addPhotoCaptions() {
+  const cards = document.querySelectorAll(".photo-track .photo-card");
+  cards.forEach((card) => {
+    const img = card.querySelector("img");
+    if (!img) return;
+
+    const text = img.dataset.desc?.trim() || img.alt?.trim();
+    if (!text) return;
+
+    // Avoid duplicates if re-run
+    if (card.querySelector(".photo-caption")) return;
+
+    const bubble = document.createElement("div");
+    bubble.className = "photo-caption";
+    bubble.textContent = text;
+    card.appendChild(bubble);
+
+    // Mobile support
+    let hideTimer;
+    ["click", "touchstart"].forEach((ev) => {
+      card.addEventListener(ev, () => {
+        card.classList.add("show-caption");
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+          card.classList.remove("show-caption");
+        }, 2000); // auto-hide after 2s
+      }, { passive: true });
+    });
+  });
+})();
 
 // ==== EXPERIENCE SECTION TOGGLE ====
 function toggleExperience(header) {
