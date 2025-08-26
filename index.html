@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
@@ -17,7 +18,7 @@
       </div>
       <h1><a href="#">Luke Qiao</a></h1>
       <nav>
-        <a href="#about">About</a>
+        <a href="#about">About Me</a>
         <a href="#experience">Experiences</a>
         <a href="#educations">Education</a>
         <a href="#projects">Projects</a>
@@ -163,14 +164,17 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I'm an EE major at Stanford passionate about circuit design, signal processing, and music. Excited to build whatever's on my mind 
-        and solve meaningful problems. Especially interested in pursuing analog/RF engineering, communication systems, PCB/IC design, 
-        digital hardware, sensing and control, robotics, and music tech. 
-        <br><br>
-        I'm currently a R&D intern in the III-V Microelectronics group at Sandia National Laboratories. Previously worked on 
+        <span class="typing">
+          I'm a BS/MS EE student at Stanford passionate about circuit design, signal processing, and music.
+        </span>
+        <span style="display: block; height: 0.75em;"></span>
+        Excited to build whatever's on my mind and solve meaningful problems. Especially interested in pursuing PCB/IC design, analog/RF 
+        engineering, digital hardware, communication systems, sensing and control, robotics, and music tech. 
+        <span style="display: block; height: 0.75em;"></span>
+        Currently a R&D intern in the III-V Microelectronics group at Sandia National Laboratories. Previously worked on 
         design verification at Apple and power electronics of a CubeSat at Stanford. 
-        <br><br>
-        You can reach me at <a class="email-link" href="#" id="emailLink">lkqiao@stanford.edu</a>.
+        <span style="display: block; height: 0.75em;"></span>
+        Contact me: <a class="email-link" href="#" id="emailLink">lkqiao@stanford.edu</a>
       </p>
     </section>
 
@@ -373,78 +377,6 @@
           <li>Key contributor to Homeye website <strong>backend development</strong></li>
         </ul>
       </div>
-
-      <!-- <div class="experience-item" style="animation-delay: 0.65s;">
-        <div class="experience-header" onclick="toggleExperience(this)">
-          <div class="experience-meta">
-            <img class="experience-logo" src="assets/logos/volunteering.png" alt="Volunteering Logo" />
-
-            <div class="experience-info">
-              <div class="row-top">
-                <span class="company-name">Volunteering</span>
-                <span class="position-title">Education Equity</span>
-              </div>
-              <div class="row-bottom">
-                <span class="location">San Diego, CA</span>
-                <span class="dates">Sept 2019 - Aug 2023</span>
-              </div>
-            </div>
-          </div>
-          <img class="dropdown-icon" src="assets/icons/experience-dropdown.svg" alt="Expand" />
-        </div>
-        <div class="experience-divider"></div>
-        <ul class="experience-details">
-          <div class="experience-item" style="animation-delay: 1s;">
-            <div class="experience-header">
-              <div class="experience-meta">
-                <img class="experience-logo" src="assets/logos/aylus.png" alt="AYLUS Logo" />
-
-                <div class="experience-info">
-                  <div class="row-top">
-                    <span class="company-name">Alliance of Youth Leaders in the United States</span>
-                    <span class="position-title">National Chair Member and Branch VP</span>
-                  </div>
-                  <div class="row-bottom">
-                    <span class="location">San Diego, CA</span>
-                    <span class="dates">Sept 2019 - Jun 2023</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="experience-divider"></div>
-            <ul class="experience-details">
-              <li><strong>Developed curricula</strong> and launched free <strong>competitive programming & AoPS math</strong> tutoring classes</li>
-              <li>Fundraised <strong>over $10k</strong> to donate <strong>20+ computers</strong> for unhoused students at Monarch School</li>
-              <li>3x President's Volunteer Service Award recipient (Gold 2021, Silver 2022, Bronze 2020)</li>
-            </ul>
-          </div>
-
-          <div class="experience-item" style="animation-delay: 0.7s;">
-            <div class="experience-header">
-              <div class="experience-meta">
-                <img class="experience-logo" src="assets/logos/cvss.png" alt="CVSS Logo" />
-
-                <div class="experience-info">
-                  <div class="row-top">
-                    <span class="company-name">Carmel Valley Summer Symphony</span>
-                    <span class="position-title">Leadership Team</span>
-                  </div>
-                  <div class="row-bottom">
-                    <span class="location">San Diego, CA</span>
-                    <span class="dates">Aug 2020 - Aug 2023</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="experience-divider"></div>
-            <ul class="experience-details">
-              <li>Board Member of Carmel Valley Summer Symphony (501(c)(3) nonprofit) providing <strong>free music education</strong></li>
-              <li>Organized a 100+ student multi-week summer intensive, <strong>coordinated logistics</strong>, and <strong>managed finances</strong> to ensure program sustainability</li>
-              <li>Spearheaded outreach and fundraising efforts, raising <strong>over $2k</strong> to support local & statewide music programs</li>
-            </ul>
-          </div>
-        </ul>
-      </div> -->
     </section>
 
     <section id="educations">
@@ -458,7 +390,7 @@
               <div class="experience-info">
                 <div class="row-top">
                   <span class="company-name">Stanford University</span>
-                  <span class="position-title">B.S./M.S., Electrical Engineering</span>
+                  <span class="position-title">BS/MS, Electrical Engineering</span>
                 </div>
                 <div class="row-bottom">
                   <span class="location">GPA: 4.07/4.0</span>
@@ -549,7 +481,55 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
-        <p>Coming soon!</p>
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th class="tags-th">
+                <span class="tags-label">Tags</span>
+                <div class="tag-filter" id="tagFilter">
+                  <div class="tag-input" id="tagInput" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                    <div class="chips" id="tagChips"></div>
+                    <button type="button" class="tag-dropdown-toggle" id="tagToggle" aria-label="Open tag filter" title="Filter">
+                      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="tag-dropdown" id="tagDropdown" role="listbox" hidden></div>
+                </div>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Musical Accompanist (Tempo AI)</td>
+              <td><span class="tag">For Fun</span> <span class="tag">Music</span> <span class="tag">ML</span></td>
+              <td><a href="https://example.com/accompanist" target="_blank">View Project</a></td>
+            </tr>
+            <tr>
+              <td>Radar Anomaly Detection</td>
+              <td><span class="tag">Research</span> <span class="tag">Signal Proc.</span></td>
+              <td><a href="https://example.com/radar" target="_blank">View Project</a></td>
+            </tr>
+            <tr>
+              <td>Portfolio Website</td>
+              <td><span class="tag">Web Dev</span> <span class="tag">Personal</span></td>
+              <td><a href="https://example.com/portfolio" target="_blank">View Project</a></td>
+            </tr>
+            <tr>
+              <td>Basilar Membrane Simulation</td>
+              <td><span class="tag">Research</span> <span class="tag">Hardware</span> <span class="tag">Bio</span></td>
+              <td><a href="https://example.com/membrane" target="_blank">View Project</a></td>
+            </tr>
+            <tr>
+              <td>Doppler Shift Database System</td>
+              <td><span class="tag">Research</span> <span class="tag">Database</span> <span class="tag">Satellite</span></td>
+              <td><a href="https://example.com/doppler" target="_blank">View Project</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -560,8 +540,8 @@
           <img src="assets/icons/youtube.svg" alt="Youtube Logo" />
         </a>
       </div>
-      <p>I've been playing piano for over 14 years, and it continues to be a big part of my life as a creative outlet. A few of my 
-        recordings + performances are below, with more on my Youtube.</p>
+      <p>I've been playing piano for around 14 years, and it's become my favorite creative outlet and a way to relax. A few of 
+        my recordings and performances are below, with more on my YouTube.</p>
       <div class="video-gallery-wrapper">
         <button class="scroll-arrow left" id="videoScrollLeft">&#10094;</button>
 

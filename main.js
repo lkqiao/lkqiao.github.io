@@ -366,5 +366,164 @@ document.getElementById("emailLink").addEventListener("click", function (e) {
   openEmail(email, subject, body);
 });
 
+// ==== TAG FILTER ====
+document.addEventListener('DOMContentLoaded', function () {
+  const table = document.querySelector('.projects-table');
+  if (!table) return;
+
+  const tbody = table.tBodies[0];
+  const rows  = Array.from(tbody.rows);
+
+  const chipsBox   = document.getElementById('tagChips');
+  const dropdown   = document.getElementById('tagDropdown');
+  const toggleBtn  = document.getElementById('tagToggle');
+  const inputBox   = document.getElementById('tagInput');
+
+  const selected = new Set();
+
+  // Collect all unique tags from column 2
+  const allTags = Array.from(new Set(
+    rows.flatMap(tr => Array.from(tr.querySelectorAll('td:nth-child(2) .tag'))
+      .map(el => el.textContent.trim()))
+  )).sort((a,b) => a.localeCompare(b));
+
+  // Build dropdown
+  dropdown.innerHTML = '';
+  allTags.forEach(tag => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tag-option';
+    btn.setAttribute('role', 'option');
+    btn.setAttribute('aria-selected', 'false');
+    btn.dataset.tag = tag;
+    btn.innerHTML = `<span>${tag}</span><span class="check">✓</span>`;
+    dropdown.appendChild(btn);
+  });
+
+  function openDropdown() {
+    dropdown.hidden = false;
+    inputBox.setAttribute('aria-expanded', 'true');
+    document.addEventListener('click', outsideClose, { once: true });
+  }
+  function closeDropdown() {
+    dropdown.hidden = true;
+    inputBox.setAttribute('aria-expanded', 'false');
+  }
+  function outsideClose(e) {
+    if (!dropdown.contains(e.target) && e.target !== toggleBtn) closeDropdown();
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.hidden ? openDropdown() : closeDropdown();
+  });
+
+  // Add a chip
+  function addChip(tag) {
+    if (selected.has(tag)) return;
+    selected.add(tag);
+
+    const chip = document.createElement('span');
+    chip.className = 'tag-chip';
+    chip.dataset.tag = tag;
+    chip.innerHTML = `${tag} <button class="chip-x" aria-label="Remove ${tag}" title="Remove">×</button>`;
+    chipsBox.appendChild(chip);
+
+    chip.querySelector('.chip-x').addEventListener('click', () => {
+      removeChip(tag);
+    });
+
+    // mark dropdown item selected
+    const opt = dropdown.querySelector(`.tag-option[data-tag="${CSS.escape(tag)}"]`);
+    if (opt) opt.setAttribute('aria-selected', 'true');
+
+    filterRows();
+  }
+
+  // Remove a chip
+  function removeChip(tag) {
+    if (!selected.has(tag)) return;
+    selected.delete(tag);
+
+    const chip = chipsBox.querySelector(`.tag-chip[data-tag="${CSS.escape(tag)}"]`);
+    if (chip) chip.remove();
+
+    const opt = dropdown.querySelector(`.tag-option[data-tag="${CSS.escape(tag)}"]`);
+    if (opt) opt.setAttribute('aria-selected', 'false');
+
+    filterRows();
+  }
+
+  // Click in dropdown
+  dropdown.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tag-option');
+    if (!btn) return;
+    const tag = btn.dataset.tag;
+    if (selected.has(tag)) {
+      removeChip(tag);
+    } else {
+      addChip(tag);
+    }
+  });
+
+  // Core filtering (AND logic)
+  function filterRows() {
+    if (selected.size === 0) {
+      rows.forEach(tr => tr.style.display = '');
+      return;
+    }
+    rows.forEach(tr => {
+      const rowTags = new Set(
+        Array.from(tr.querySelectorAll('td:nth-child(2) .tag'))
+             .map(el => el.textContent.trim())
+      );
+      const match = Array.from(selected).every(t => rowTags.has(t));
+      tr.style.display = match ? '' : 'none';
+    });
+  }
+});
+
+// ==== TYPING ANIMATION ON SCROLL ====
+const targets = Array.from(document.querySelectorAll('.typing'));
+const cooldown = 5000; // ms — counts only while OUT of view
+
+// Track the time each element was last OUT of view
+const lastOutTime = new WeakMap();
+
+function restartAnimation(el) {
+  el.style.animation = 'none';
+  // force reflow so the browser restarts the animation
+  // eslint-disable-next-line no-unused-expressions
+  void el.offsetWidth;
+  el.style.animation = '';
+}
+
+const io = new IntersectionObserver((entries) => {
+  const now = Date.now();
+
+  entries.forEach((entry) => {
+    const el = entry.target;
+
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+      // Element is considered IN view → reset the timer
+      const outTs = lastOutTime.get(el);
+      // If it was previously out long enough, restart once on re-entry
+      if (outTs && (now - outTs >= cooldown)) {
+        restartAnimation(el);
+      }
+      // Being in view resets the out-of-view timer
+      lastOutTime.set(el, 0);
+    } else {
+      // Element is OUT of view (or below 60%) → start/continue cooldown
+      // Only set the timestamp the first time it goes out
+      if (!lastOutTime.get(el)) {
+        lastOutTime.set(el, now);
+      }
+    }
+  });
+}, { threshold: [0, 0.6] }); // fire when leaving (0) and when crossing 60%
+
+targets.forEach((el) => io.observe(el));
+
 // Initialize state on page load
 updateCarousel();
