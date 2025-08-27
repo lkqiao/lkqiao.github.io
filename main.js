@@ -367,13 +367,12 @@ document.getElementById("emailLink").addEventListener("click", function (e) {
 });
 
 // ==== TAG FILTER ====
+// ==== TAG FILTER (Cards) ====
 document.addEventListener('DOMContentLoaded', function () {
-  const table = document.querySelector('.projects-table');
-  if (!table) return;
+  const grid = document.getElementById('projectCards');
+  if (!grid) return;
 
-  const tbody = table.tBodies[0];
-  const rows  = Array.from(tbody.rows);
-
+  const cards  = Array.from(grid.querySelectorAll('.project-card'));
   const chipsBox   = document.getElementById('tagChips');
   const dropdown   = document.getElementById('tagDropdown');
   const toggleBtn  = document.getElementById('tagToggle');
@@ -381,11 +380,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const selected = new Set();
 
-  // Collect all unique tags from column 2
-  const allTags = Array.from(new Set(
-    rows.flatMap(tr => Array.from(tr.querySelectorAll('td:nth-child(2) .tag'))
-      .map(el => el.textContent.trim()))
-  )).sort((a,b) => a.localeCompare(b));
+  function tagsForCard(card) {
+    const explicit = Array.from(card.querySelectorAll('.project-card__tags .tag'))
+      .map(el => el.textContent.trim());
+    const data = (card.getAttribute('data-tags') || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+    // unique merge
+    return Array.from(new Set([...explicit, ...data]));
+  }
+
+  // Collect all unique tags across cards
+  const allTags = Array.from(new Set(cards.flatMap(tagsForCard)))
+    .sort((a,b) => a.localeCompare(b));
 
   // Build dropdown
   dropdown.innerHTML = '';
@@ -433,11 +441,10 @@ document.addEventListener('DOMContentLoaded', function () {
       removeChip(tag);
     });
 
-    // mark dropdown item selected
     const opt = dropdown.querySelector(`.tag-option[data-tag="${CSS.escape(tag)}"]`);
     if (opt) opt.setAttribute('aria-selected', 'true');
 
-    filterRows();
+    filterCards();
   }
 
   // Remove a chip
@@ -451,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const opt = dropdown.querySelector(`.tag-option[data-tag="${CSS.escape(tag)}"]`);
     if (opt) opt.setAttribute('aria-selected', 'false');
 
-    filterRows();
+    filterCards();
   }
 
   // Click in dropdown
@@ -467,63 +474,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Core filtering (AND logic)
-  function filterRows() {
+  function filterCards() {
     if (selected.size === 0) {
-      rows.forEach(tr => tr.style.display = '');
+      cards.forEach(card => card.style.display = '');
       return;
     }
-    rows.forEach(tr => {
-      const rowTags = new Set(
-        Array.from(tr.querySelectorAll('td:nth-child(2) .tag'))
-             .map(el => el.textContent.trim())
-      );
-      const match = Array.from(selected).every(t => rowTags.has(t));
-      tr.style.display = match ? '' : 'none';
+    cards.forEach(card => {
+      const cardTags = new Set(tagsForCard(card));
+      const show = Array.from(selected).every(t => cardTags.has(t));
+      card.style.display = show ? '' : 'none';
     });
   }
 });
-
-// ==== TYPING ANIMATION ON SCROLL ====
-const targets = Array.from(document.querySelectorAll('.typing'));
-const cooldown = 5000; // ms — counts only while OUT of view
-
-// Track the time each element was last OUT of view
-const lastOutTime = new WeakMap();
-
-function restartAnimation(el) {
-  el.style.animation = 'none';
-  // force reflow so the browser restarts the animation
-  // eslint-disable-next-line no-unused-expressions
-  void el.offsetWidth;
-  el.style.animation = '';
-}
-
-const io = new IntersectionObserver((entries) => {
-  const now = Date.now();
-
-  entries.forEach((entry) => {
-    const el = entry.target;
-
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-      // Element is considered IN view → reset the timer
-      const outTs = lastOutTime.get(el);
-      // If it was previously out long enough, restart once on re-entry
-      if (outTs && (now - outTs >= cooldown)) {
-        restartAnimation(el);
-      }
-      // Being in view resets the out-of-view timer
-      lastOutTime.set(el, 0);
-    } else {
-      // Element is OUT of view (or below 60%) → start/continue cooldown
-      // Only set the timestamp the first time it goes out
-      if (!lastOutTime.get(el)) {
-        lastOutTime.set(el, now);
-      }
-    }
-  });
-}, { threshold: [0, 0.6] }); // fire when leaving (0) and when crossing 60%
-
-targets.forEach((el) => io.observe(el));
 
 // Initialize state on page load
 updateCarousel();

@@ -481,55 +481,98 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
-        <table class="projects-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th class="tags-th">
-                <span class="tags-label">Tags</span>
-                <div class="tag-filter" id="tagFilter">
-                  <div class="tag-input" id="tagInput" role="combobox" aria-expanded="false" aria-haspopup="listbox">
-                    <div class="chips" id="tagChips"></div>
-                    <button type="button" class="tag-dropdown-toggle" id="tagToggle" aria-label="Open tag filter" title="Filter">
-                      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="tag-dropdown" id="tagDropdown" role="listbox" hidden></div>
-                </div>
-              </th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Musical Accompanist (Tempo AI)</td>
-              <td><span class="tag">For Fun</span> <span class="tag">Music</span> <span class="tag">ML</span></td>
-              <td><a href="https://example.com/accompanist" target="_blank">View Project</a></td>
-            </tr>
-            <tr>
-              <td>Radar Anomaly Detection</td>
-              <td><span class="tag">Research</span> <span class="tag">Signal Proc.</span></td>
-              <td><a href="https://example.com/radar" target="_blank">View Project</a></td>
-            </tr>
-            <tr>
-              <td>Portfolio Website</td>
-              <td><span class="tag">Web Dev</span> <span class="tag">Personal</span></td>
-              <td><a href="https://example.com/portfolio" target="_blank">View Project</a></td>
-            </tr>
-            <tr>
-              <td>Basilar Membrane Simulation</td>
-              <td><span class="tag">Research</span> <span class="tag">Hardware</span> <span class="tag">Bio</span></td>
-              <td><a href="https://example.com/membrane" target="_blank">View Project</a></td>
-            </tr>
-            <tr>
-              <td>Doppler Shift Database System</td>
-              <td><span class="tag">Research</span> <span class="tag">Database</span> <span class="tag">Satellite</span></td>
-              <td><a href="https://example.com/doppler" target="_blank">View Project</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="project-filter">
+          <span class="tags-label">Tags</span>
+          <div class="tag-filter" id="tagFilter">
+            <div class="tag-input" id="tagInput" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+              <div class="chips" id="tagChips"></div>
+              <button type="button" class="tag-dropdown-toggle" id="tagToggle" aria-label="Open tag filter" title="Filter">
+                <svg class="chev" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="tag-dropdown" id="tagDropdown" role="listbox" hidden></div>
+          </div>
+        </div>
+
+        <div class="project-cards" id="projectCards">
+          <article class="project-card" data-tags="Signal Processing, ML, Python">
+            <header class="project-card__header">
+              <h3 class="project-card__title">Tempo AI</h3>
+              <div class="project-card__links">
+                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+              </div>
+            </header>
+            <p class="project-card__desc">Librosa-based tempo detection and rehearsal assistant with onset tracking and click alignment.</p>
+            <ul class="project-card__meta">
+              <li>2025</li>
+              <li>Personal</li>
+            </ul>
+            <div class="project-card__tags">
+              <span class="tag">Signal Processing</span>
+              <span class="tag">ML</span>
+              <span class="tag">Python</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="Hardware, RF, PCB">
+            <header class="project-card__header">
+              <h3 class="project-card__title">ApRES Radar Utils</h3>
+              <div class="project-card__links">
+                <a href="#" target="_blank" aria-label="Demo">Demo ↗</a>
+              </div>
+            </header>
+            <p class="project-card__desc">Tools for multistatic ApRES radar processing, LPF/FFT depth estimation, and RFoF link evaluation.</p>
+            <ul class="project-card__meta">
+              <li>2025</li>
+              <li>Research</li>
+            </ul>
+            <div class="project-card__tags">
+              <span class="tag">Hardware</span>
+              <span class="tag">RF</span>
+              <span class="tag">PCB</span>
+            </div>
+          </article>
+
+           <article class="project-card" data-tags="Signal Processing, ML, Python">
+            <header class="project-card__header">
+              <h3 class="project-card__title">Tempo AI</h3>
+              <div class="project-card__links">
+                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+              </div>
+            </header>
+            <p class="project-card__desc">Librosa-based tempo detection and rehearsal assistant with onset tracking and click alignment.</p>
+            <ul class="project-card__meta">
+              <li>2025</li>
+              <li>Personal</li>
+            </ul>
+            <div class="project-card__tags">
+              <span class="tag">Signal Processing</span>
+              <span class="tag">ML</span>
+              <span class="tag">Python</span>
+            </div>
+          </article>
+
+           <article class="project-card" data-tags="Signal Processing, ML, Python">
+            <header class="project-card__header">
+              <h3 class="project-card__title">Tempo AI</h3>
+              <div class="project-card__links">
+                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+              </div>
+            </header>
+            <p class="project-card__desc">Librosa-based tempo detection and rehearsal assistant with onset tracking and click alignment.</p>
+            <ul class="project-card__meta">
+              <li>2025</li>
+              <li>Personal</li>
+            </ul>
+            <div class="project-card__tags">
+              <span class="tag">Signal Processing</span>
+              <span class="tag">ML</span>
+              <span class="tag">Python</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
