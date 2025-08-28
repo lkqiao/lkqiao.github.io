@@ -168,8 +168,8 @@
           I'm a BS/MS EE student at Stanford passionate about circuit design, signal processing, and music.
         </span>
         <span style="display: block; height: 0.75em;"></span>
-        Excited to build whatever's on my mind and solve meaningful problems. Especially interested in pursuing PCB/IC design, analog/RF 
-        engineering, digital hardware, communication systems, sensing and control, robotics, and music tech. 
+        Building whatever's on my mind. Excited to solve difficult problems across PCB/IC design, analog/RF 
+        engineering, digital hardware, robotics, aerospace, and music tech. 
         <span style="display: block; height: 0.75em;"></span>
         Currently a R&D intern in the III-V Microelectronics group at Sandia National Laboratories. Previously worked on 
         design verification at Apple and power electronics of a CubeSat at Stanford. 
@@ -209,7 +209,6 @@
             noise modeling</strong> for simulations using LTSpice, Keysight ADS, Altium Designer, and Siemens Tanner EDA Suite</li>
         </ul>
       </div>
-
 
       <div class="experience-item" style="animation-delay: 0.35s;">
         <div class="experience-header" onclick="toggleExperience(this)">
@@ -316,8 +315,8 @@
         <ul class="experience-details">
           <li>Co-led the <strong>Battery Board Thermal Circuit</strong> project for SAMWISE, Stanford Student Space Initiative's 
             2U CubeSat, a custom-built satellite (launching with SpaceX in 2025)</li>
-          <li>Designed and analyzed <strong>MOSFET circuit</strong> to regulate battery temperature for <strong>optimal power 
-            efficienc</strong>, met required specs</li>
+          <li>Designed & analyzed circuit to regulate battery temp. using MOSFETs for <strong>optimal power 
+            efficiency</strong>, met required specs</li>
           <li>Created <strong>printed circuit board (PCB)</strong> schematic and layout in <strong>KiCad</strong>; simulated & 
             validated behavior using <strong>LTSpice</strong>; automated heating coil trace wiring with <strong>Python 
             scripts</strong></li>
@@ -495,81 +494,73 @@
             <div class="tag-dropdown" id="tagDropdown" role="listbox" hidden></div>
           </div>
         </div>
-
+      
         <div class="project-cards" id="projectCards">
-          <article class="project-card" data-tags="Signal Processing, ML, Python">
+          <article class="project-card" data-tags="Digital System Design, FPGA, Verilog, Xilinx Vivado">
             <header class="project-card__header">
-              <h3 class="project-card__title">Tempo AI</h3>
+              <h3 class="project-card__title">Music Synthesizer</h3>
               <div class="project-card__links">
                 <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
               </div>
             </header>
-            <p class="project-card__desc">Librosa-based tempo detection and rehearsal assistant with onset tracking and click alignment.</p>
-            <ul class="project-card__meta">
-              <li>2025</li>
-              <li>Personal</li>
-            </ul>
+            <p class="project-card__desc">Created a FPGA music synthesizer using Verilog in Xilinx Vivado. Implemented 
+              emotion prediction with 1D CNN in hardware, DSP & harmonic synthesis, and an external display via HDMI protocol. 
+            </p>
             <div class="project-card__tags">
-              <span class="tag">Signal Processing</span>
-              <span class="tag">ML</span>
-              <span class="tag">Python</span>
+              <span class="tag">Digital System Design</span>
+              <span class="tag">FPGA</span>
+              <span class="tag">Verilog</span>
+              <span class="tag">Xilinx Vivado</span>
             </div>
           </article>
 
-          <article class="project-card" data-tags="Hardware, RF, PCB">
+          <article class="project-card" data-tags="Signal Processing, Python, MATLAB">
             <header class="project-card__header">
-              <h3 class="project-card__title">ApRES Radar Utils</h3>
+              <h3 class="project-card__title">Adaptive Musical Accompanist</h3>
+              <div class="project-card__links">
+                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+              </div>
+            </header>
+            <p class="project-card__desc">Building a computer rehearsal assistant that greatly enhances how musicians rehearse. 
+              Enables accompaniment that adapts to the musician's tempo in real-time, simulating a human accompanist.</p>
+            <div class="project-card__tags">
+              <span class="tag">Signal Processing</span>
+              <span class="tag">Python</span>
+              <span class="tag">MATLAB</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="Analog Circuit Design, Circuit Analysis, Analog ICs, Electronics Lab Bench">
+            <header class="project-card__header">
+              <h3 class="project-card__title">Custom Stereo Bluetooth Speaker</h3>
               <div class="project-card__links">
                 <a href="#" target="_blank" aria-label="Demo">Demo ↗</a>
               </div>
             </header>
-            <p class="project-card__desc">Tools for multistatic ApRES radar processing, LPF/FFT depth estimation, and RFoF link evaluation.</p>
-            <ul class="project-card__meta">
-              <li>2025</li>
-              <li>Research</li>
-            </ul>
+            <p class="project-card__desc">Designed and built a stereo bluetooth speaker from scratch using a class-D amplifier IC 
+              to drive two speakers, achieving < 1% THD.</p>
             <div class="project-card__tags">
-              <span class="tag">Hardware</span>
-              <span class="tag">RF</span>
-              <span class="tag">PCB</span>
+              <span class="tag">Analog Circuit Design</span>
+              <span class="tag">Circuit Analysis</span>
+              <span class="tag">Analog ICs</span>
+              <span class="tag">Electronics Lab Bench</span>
             </div>
           </article>
 
-           <article class="project-card" data-tags="Signal Processing, ML, Python">
+          <article class="project-card" data-tags="PCB Design, KiCAD, LTSpice, Aerospace Systems">
             <header class="project-card__header">
-              <h3 class="project-card__title">Tempo AI</h3>
+              <h3 class="project-card__title">Battery Board Heater System</h3>
               <div class="project-card__links">
                 <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
               </div>
             </header>
-            <p class="project-card__desc">Librosa-based tempo detection and rehearsal assistant with onset tracking and click alignment.</p>
-            <ul class="project-card__meta">
-              <li>2025</li>
-              <li>Personal</li>
-            </ul>
+            <p class="project-card__desc">Designed the heater circuit for for SSI's cubesat battery board to maintain optimal 
+              temperature for efficient power delivery to subsystems (deployables, ADCS, radio, selfie stick + 12MP camera).</p>
             <div class="project-card__tags">
-              <span class="tag">Signal Processing</span>
-              <span class="tag">ML</span>
-              <span class="tag">Python</span>
-            </div>
-          </article>
-
-           <article class="project-card" data-tags="Signal Processing, ML, Python">
-            <header class="project-card__header">
-              <h3 class="project-card__title">Tempo AI</h3>
-              <div class="project-card__links">
-                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
-              </div>
-            </header>
-            <p class="project-card__desc">Librosa-based tempo detection and rehearsal assistant with onset tracking and click alignment.</p>
-            <ul class="project-card__meta">
-              <li>2025</li>
-              <li>Personal</li>
-            </ul>
-            <div class="project-card__tags">
-              <span class="tag">Signal Processing</span>
-              <span class="tag">RF</span>
-              <span class="tag">Python</span>
+              <span class="tag">PCB Design</span>
+              <span class="tag">KiCAD</span>
+              <span class="tag">LTSpice</span>
+              <span class="tag">Aerospace Systems</span>
             </div>
           </article>
         </div>

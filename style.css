@@ -1147,16 +1147,6 @@ body.dark .youtube-btn:hover img {
   margin: 0; 
 }
 
-.project-card__meta {
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.9rem;
-  color: #777;
-}
-
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
