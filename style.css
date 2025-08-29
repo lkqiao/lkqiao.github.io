@@ -1282,7 +1282,7 @@ body.dark .tag-dropdown {
 }
 
 .ext-link:hover {
-  color: var(--accent, #3b82f6); 
+  color: var(--accent-color); 
 }
 
 .sr-only {
