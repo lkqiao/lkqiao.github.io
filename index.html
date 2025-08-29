@@ -480,7 +480,7 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
-        <div class="project-filter">
+        <!-- <div class="project-filter">
           <span class="tags-label">Tags</span>
           <div class="tag-filter" id="tagFilter">
             <div class="tag-input" id="tagInput" role="combobox" aria-expanded="false" aria-haspopup="listbox">
@@ -493,18 +493,30 @@
             </div>
             <div class="tag-dropdown" id="tagDropdown" role="listbox" hidden></div>
           </div>
-        </div>
+        </div> -->
       
         <div class="project-cards" id="projectCards">
           <article class="project-card" data-tags="Digital System Design, FPGA, Verilog, Xilinx Vivado">
             <header class="project-card__header">
               <h3 class="project-card__title">Music Synthesizer</h3>
               <div class="project-card__links">
-                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+                <a href="https://github.com/lkqiao"
+                  target="_blank" rel="noopener noreferrer"
+                  aria-label="GitHub" class="ext-link" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                      width="20" height="20" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
               </div>
             </header>
-            <p class="project-card__desc">Created a FPGA music synthesizer using Verilog in Xilinx Vivado. Implemented 
-              emotion prediction with 1D CNN in hardware, DSP & harmonic synthesis, and an external display via HDMI protocol. 
+            <p class="project-card__desc">An FPGA music synthesizer with emotion prediction via 1D CNN, 
+              harmonic synthesis, and HDMI display implemented in hardware. 
             </p>
             <div class="project-card__tags">
               <span class="tag">Digital System Design</span>
@@ -518,11 +530,22 @@
             <header class="project-card__header">
               <h3 class="project-card__title">Adaptive Musical Accompanist</h3>
               <div class="project-card__links">
-                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+                <a href="https://github.com/lkqiao"
+                  target="_blank" rel="noopener noreferrer"
+                  aria-label="GitHub" class="ext-link" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                      width="20" height="20" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
               </div>
             </header>
-            <p class="project-card__desc">Building a computer rehearsal assistant that greatly enhances how musicians rehearse. 
-              Enables accompaniment that adapts to the musician's tempo in real-time, simulating a human accompanist.</p>
+            <p class="project-card__desc">Building a computer rehearsal assistant that adapts to a musician's tempo in real time, greatly enhancing rehearsals.</p>
             <div class="project-card__tags">
               <span class="tag">Signal Processing</span>
               <span class="tag">Python</span>
@@ -530,20 +553,33 @@
             </div>
           </article>
 
-          <article class="project-card" data-tags="Analog Circuit Design, Circuit Analysis, Analog ICs, Electronics Lab Bench">
+          <article class="project-card" data-tags="Analog Circuit Design, Circuit Analysis, Analog ICs, Electronics Lab Bench, LTSpice">
             <header class="project-card__header">
               <h3 class="project-card__title">Custom Stereo Bluetooth Speaker</h3>
               <div class="project-card__links">
-                <a href="#" target="_blank" aria-label="Demo">Demo ↗</a>
+                <a href="https://github.com/lkqiao"
+                  target="_blank" rel="noopener noreferrer"
+                  aria-label="GitHub" class="ext-link" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                      width="20" height="20" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
               </div>
             </header>
-            <p class="project-card__desc">Designed and built a stereo bluetooth speaker from scratch using a class-D amplifier IC 
-              to drive two speakers, achieving < 1% THD.</p>
+            <p class="project-card__desc">A stereo bluetooth speaker designed from scratch, using a class-D amplifier IC 
+              to drive two speakers with < 1% THD.</p>
             <div class="project-card__tags">
               <span class="tag">Analog Circuit Design</span>
               <span class="tag">Circuit Analysis</span>
               <span class="tag">Analog ICs</span>
               <span class="tag">Electronics Lab Bench</span>
+              <span class="tag">LTSpice</span>
             </div>
           </article>
 
@@ -551,11 +587,23 @@
             <header class="project-card__header">
               <h3 class="project-card__title">Battery Board Heater System</h3>
               <div class="project-card__links">
-                <a href="https://github.com/lkqiao" target="_blank" aria-label="GitHub">GitHub ↗</a>
+                <a href="https://github.com/lkqiao/battery-board-heater/tree/main"
+                  target="_blank" rel="noopener noreferrer"
+                  aria-label="GitHub" class="ext-link" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                      width="20" height="20" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"
+                      aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
               </div>
             </header>
-            <p class="project-card__desc">Designed the heater circuit for for SSI's cubesat battery board to maintain optimal 
-              temperature for efficient power delivery to subsystems (deployables, ADCS, radio, selfie stick + 12MP camera).</p>
+            <p class="project-card__desc">The battery board heater circuit for SSI's CubeSat, maintaining optimal 
+              temperature for efficient subsystem power delivery.</p>
             <div class="project-card__tags">
               <span class="tag">PCB Design</span>
               <span class="tag">KiCAD</span>

@@ -1082,7 +1082,7 @@ body.dark .youtube-btn:hover img {
 }
 
 .project {
-  margin-top: -5px;
+  margin-top: 25px;
 }
 
 /* ===== Projects: Cards Layout ===== */
@@ -1116,7 +1116,7 @@ body.dark .youtube-btn:hover img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
 .project-card:hover {
@@ -1153,14 +1153,15 @@ body.dark .youtube-btn:hover img {
   gap: 8px;
   margin-top: 4px;
 }
+
 .tag {
   display: inline-block;
   padding: 4px 10px;
   font-size: 0.85rem;
   border-radius: 999px;
-  background: var(--bubble-bg-light);
+  background: #a7a7a722;
   color: inherit;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(167, 167, 167, 0.146);
 }
 
 body.dark .project-card {
@@ -1169,12 +1170,6 @@ body.dark .project-card {
   border-color: rgba(255,255,255,0.08);
 }
 
-body.dark .tag {
-  background: var(--bubble-bg-dark);
-  border-color: rgba(255,255,255,0.1);
-}
-
-/* ===== Tag Filter UI (reuse existing IDs) ===== */
 .tag-filter { 
   position: relative; 
   min-width: 240px; 
@@ -1192,6 +1187,7 @@ body.dark .tag {
   padding: 6px 8px;
   transition: background 0.3s ease;
 }
+
 body.dark .tag-input { 
   background: var(--bubble-bg-dark); 
   border-color: rgba(255,255,255,0.12); 
@@ -1274,4 +1270,29 @@ body.dark .tag-dropdown {
 
 .tag-option[aria-selected="true"] .check { 
   opacity: 1; 
+}
+
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  color: inherit;         
+  text-decoration: none;   
+  gap: 0.35em;           
+}
+
+.ext-link:hover {
+  color: var(--accent, #3b82f6); 
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
