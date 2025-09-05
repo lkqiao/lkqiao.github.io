@@ -172,30 +172,39 @@ main section h2 {
   margin-bottom: 15px;
 }
 
-
 .typing {
   display: inline-block;
-  border-right: 2px solid var(--cursor-color);
-  white-space: nowrap;
-  overflow: hidden;
-  height: 1.5em;
-  animation: typing 2.5s steps(60, end), blink .75s step-end infinite;
   font-family: ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  color: var(--cursor-color);
+  line-height: 1.5;
+  color: var(--cursor-color, currentColor);
+  white-space: normal;       
+  overflow-wrap: anywhere;  
 }
 
-body.dark .typing {
-  color: #33FF33;
+.typing-text {
+  white-space: inherit;  
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 97ch; }
+.typing .caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--cursor-color, currentColor);
+  margin-left: 2px;
+  vertical-align: -0.18em;    
+  animation: blink .75s step-end infinite;
+}
+
+.typing .caret.done {
+  animation: none;
 }
 
 @keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--cursor-color); }
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing .caret { animation: none; }
 }
 
 .floating-social {

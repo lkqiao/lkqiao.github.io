@@ -334,7 +334,7 @@ if (videoGallery && videoScrollLeft && videoScrollRight) {
   });
 })();
 
-// ==== Email Link ====
+// ==== EMAIL LINK ====
 document.getElementById("emailLink").addEventListener("click", function (e) {
   e.preventDefault();
   
@@ -367,7 +367,6 @@ document.getElementById("emailLink").addEventListener("click", function (e) {
 });
 
 // ==== TAG FILTER ====
-// ==== TAG FILTER (Cards) ====
 document.addEventListener('DOMContentLoaded', function () {
   const grid = document.getElementById('projectCards');
   if (!grid) return;
@@ -486,6 +485,104 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// ==== TYPING ANIMATION ====
+(function () {
+  const REARM_DELAY_MS = 5000;  
+  const SPEED_FALLBACK = 25;  
+
+  function startTyping(el) {
+    const speed = Number(el.dataset.speed) || SPEED_FALLBACK;
+
+    const full = (el.dataset.fulltext && el.dataset.fulltext.length)
+      ? el.dataset.fulltext
+      : (el.textContent || '').replace(/\s+/g, ' ').trim();
+
+    el.dataset.fulltext = full;
+
+    el.textContent = '';
+    const out = document.createElement('span');
+    out.className = 'typing-text';
+    el.appendChild(out);
+
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+    caret.setAttribute('aria-hidden', 'true');
+    el.appendChild(caret);
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      out.textContent = full;
+      caret.classList.add('done');
+      return;
+    }
+
+    let i = 0;
+    function tick() {
+      if (i < full.length) {
+        out.textContent += full[i++];
+        el._typingTimer = setTimeout(tick, speed);
+      }
+    }
+    tick();
+  }
+
+  function stopTyping(el) {
+    if (el._typingTimer) {
+      clearTimeout(el._typingTimer);
+      el._typingTimer = null;
+    }
+  }
+
+  function initAll() {
+    const nodes = document.querySelectorAll('.typing');
+    if (!nodes.length) return;
+
+    nodes.forEach(el => {
+      if (el.dataset.processed === '1') return;
+      el.dataset.processed = '1';
+      el.dataset.shouldReset = '0';
+      startTyping(el);
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+
+        if (entry.isIntersecting) {
+          if (el._offTimer) {
+            clearTimeout(el._offTimer);
+            el._offTimer = null;
+          }
+          if (el.dataset.shouldReset === '1') {
+            el.dataset.shouldReset = '0';
+            stopTyping(el);
+            el.innerHTML = '';
+            startTyping(el);
+          }
+        } else {
+          if (entry.intersectionRatio === 0) {
+            if (el._offTimer) {
+              clearTimeout(el._offTimer);
+              el._offTimer = null;
+            }
+            el._offTimer = setTimeout(() => {
+              el._offTimer = null;
+              el.dataset.shouldReset = '1';
+            }, REARM_DELAY_MS);
+          }
+        }
+      });
+    }, { root: null, threshold: 0 });
+
+    nodes.forEach(el => io.observe(el));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll, { once: true });
+  } else {
+    initAll();
+  }
+})();
 
 // Initialize state on page load
 updateCarousel();
