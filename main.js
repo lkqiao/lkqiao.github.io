@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // ==== TYPING ANIMATION ====
 (function () {
   const REARM_DELAY_MS = 5000;  
-  const SPEED_FALLBACK = 15;  
+  const SPEED_FALLBACK = 0.05;  
 
   function startTyping(el) {
     const speed = Number(el.dataset.speed) || SPEED_FALLBACK;
