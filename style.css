@@ -802,7 +802,8 @@ body.dark .dot-indicators .dot.active {
 }
 
 body.dark .experience-logo[src*='volunteering.png'],
-body.dark .experience-logo[src*='apple.png'] {
+body.dark .experience-logo[src*='apple.png'],
+body.dark .experience-logo[src*='tesla.png'] {
   filter: invert(1);
 }
 
