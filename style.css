@@ -1291,7 +1291,11 @@ body.dark .tag-dropdown {
 }
 
 .ext-link:hover {
-  color: var(--accent-color); 
+  filter: invert(40%);
+}
+
+body.dark .ext-link:hover {
+  filter: invert(60%);
 }
 
 .sr-only {
