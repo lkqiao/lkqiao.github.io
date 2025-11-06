@@ -1295,7 +1295,7 @@ body.dark .tag-dropdown {
 }
 
 body.dark .ext-link:hover {
-  filter: invert(40%);
+  filter: invert(60%);
 }
 
 .sr-only {
