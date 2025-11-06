@@ -1291,11 +1291,11 @@ body.dark .tag-dropdown {
 }
 
 .ext-link:hover {
-  filter: invert(40%);
+  filter: invert(60%);
 }
 
 body.dark .ext-link:hover {
-  filter: invert(60%);
+  filter: invert(40%);
 }
 
 .sr-only {
