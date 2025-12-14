@@ -1,7 +1,8 @@
 :root {
   --text-light: #222;
   --text-dark: #fff;
-  --accent-color: #007acc;
+  /* --accent-color: #007acc; */
+  --accent-color: #a90101;
   --bg-light: #f7f8fa;
   --bg-dark: #121212;
   --section-bg-light: #fff;
@@ -11,12 +12,13 @@
   --left-sidebar-width: 20%;
   --right-sidebar-width: 35%;
   --right-sidebar-transition-duration: 0.5s;
-  --cursor-color: #1b7bdb;
+  /* --cursor-color: #1b7bdb; */
+  --cursor-color: #be1919;
 }
 
 body.dark {
   --cursor-color: #39FF14;
-  --accent-color: #eea654;
+  --accent-color: #cfbaba;
 }
 
 * {
@@ -122,6 +124,9 @@ body {
 
 .sidebar nav a:hover {
   color: var(--accent-color);
+  font-weight: 500;
+  font-size: 1.12rem;
+  text-decoration: none;
 }
 
 .sidebar-bottom {
@@ -774,7 +779,7 @@ body.dark .dot-indicators .dot.active {
 }
 
 .experience-header:hover .dropdown-icon {
-  filter: brightness(0) saturate(100%) invert(39%) sepia(92%) saturate(747%) hue-rotate(175deg) brightness(96%) contrast(92%);
+  filter: invert(12%) sepia(92%) saturate(7500%) hue-rotate(355deg) brightness(62%) contrast(110%);
 }
 
 .experience-meta {
@@ -895,7 +900,7 @@ body.dark .experience-item {
 }
 
 body.dark .experience-header:hover .dropdown-icon {
-  filter: brightness(0) saturate(100%) invert(39%) sepia(92%) saturate(275%) brightness(136%) contrast(92%);
+  filter: invert(60%) sepia(6%) saturate(500%) hue-rotate(315deg) brightness(112%) contrast(90%);
 }
 
 @keyframes bulletFadeIn {
