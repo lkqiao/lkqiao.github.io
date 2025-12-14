@@ -585,4 +585,4 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 // Initialize state on page load
-updateCarousel();
+// updateCarousel();
