@@ -150,7 +150,7 @@ function toggleExperience(header) {
     // Fade in bullets with stagger
     bullets.forEach((li, i) => {
       li.style.animation = 'bulletFadeIn 0.4s ease-out forwards';
-      li.style.animationDelay = `${0.2 + i * 0.05}s`;
+      li.style.animationDelay = `${0.2 + i * 0.03}s`;
     });
 
   } else {
