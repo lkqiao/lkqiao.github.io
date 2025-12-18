@@ -1401,7 +1401,7 @@ body.dark .ext-link:hover {
   .bottom-row {
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 0;     /* NO horizontal gap */
+    column-gap: 10px;     /* NO horizontal gap */
     row-gap: 12px;     /* vertical spacing only */
   }
 
