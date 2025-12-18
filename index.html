@@ -42,10 +42,13 @@
 
   <div class="sidebar-backdrop"></div>
 
+  <button id="sidebarToggle" class="bubble-toggle">
+    <img src="assets/icons/plus-menu.svg" alt="Toggle Sidebar" />
+  </button>
   <div class="right-sidebar collapsed" id="rightSidebar">
-    <button id="sidebarToggle" class="bubble-toggle">
+    <!-- <button id="sidebarToggle" class="bubble-toggle">
       <img src="assets/icons/plus-menu.svg" alt="Toggle Sidebar" />
-    </button>
+    </button> -->
     <div class="sidebar-content">
       <h2 style="margin-left: 16px;">Photo Gallery</h2>
       <div class="photo-gallery-wrapper">
@@ -83,6 +86,7 @@
       <h2 style="margin-left: 16px;">Currently Listening To</h2>
       <div class="spotify-carousel-wrapper">
         <button class="scroll-arrow left" id="scrollLeft">&#10094;</button>
+        <button class="scroll-arrow right" id="scrollRight">&#10095;</button>
         
         <div class="spotify-carousel" id="carousel">
           <div class="carousel-track">
@@ -144,9 +148,6 @@
             </div>
           </div>
         </div>
-
-        <button class="scroll-arrow right" id="scrollRight">&#10095;</button>
-        <div class="dot-indicators" id="dotIndicators"></div>
       </div>
     </div>
   </div>
