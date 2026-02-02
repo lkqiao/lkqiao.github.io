@@ -543,6 +543,16 @@ body.sidebar-open .bubble-toggle {
   right: 10%;
 }
 
+.scroll-arrow:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+body.dark .scroll-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
 .photo-gallery-wrapper {
   position: relative;
   padding: 0 40px 0 0;
