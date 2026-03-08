@@ -1157,6 +1157,16 @@ body.dark .youtube-btn:hover img {
   text-decoration: underline;
 }
 
+.ICAD-link {
+  color: inherit; 
+  text-decoration: none; 
+  cursor: pointer;
+}
+
+.ICAD-link:hover {
+  text-decoration: underline;
+}
+
 .project {
   margin-top: 25px;
 }
