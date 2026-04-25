@@ -775,6 +775,14 @@ body.dark .right-sidebar .song-card p {
   color: #aaa;
 }
 
+strong {
+  text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.2);
+}
+
+body.dark strong {
+  text-shadow: 0 0.5px 1px rgba(255, 255, 255, 0.8);
+}
+
 #darkModeToggle,
 .footer-bubble-wrapper {
   will-change: transform, opacity;
