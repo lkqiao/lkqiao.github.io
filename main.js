@@ -92,12 +92,34 @@ const photoGallery = document.getElementById("photoGallery");
 const galleryScrollLeft = document.getElementById("galleryScrollLeft");
 const galleryScrollRight = document.getElementById("galleryScrollRight");
 
+function getPhotoCards() {
+  return Array.from(document.querySelectorAll(".photo-track .photo-card"));
+}
+
+function getCurrentPhotoIndex() {
+  const cards = getPhotoCards();
+  const viewCenter = photoGallery.scrollLeft + photoGallery.clientWidth / 2;
+  let closestIdx = 0, closestDist = Infinity;
+  cards.forEach((card, i) => {
+    const dist = Math.abs((card.offsetLeft + card.offsetWidth / 2) - viewCenter);
+    if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+  });
+  return closestIdx;
+}
+
+function scrollToPhotoIndex(idx) {
+  const cards = getPhotoCards();
+  const card = cards[Math.max(0, Math.min(idx, cards.length - 1))];
+  const targetLeft = card.offsetLeft + card.offsetWidth / 2 - photoGallery.clientWidth / 2;
+  photoGallery.scrollTo({ left: targetLeft, behavior: "smooth" });
+}
+
 galleryScrollLeft.addEventListener("click", () => {
-  photoGallery.scrollBy({ left: -240, behavior: "smooth" });
+  scrollToPhotoIndex(getCurrentPhotoIndex() - 1);
 });
 
 galleryScrollRight.addEventListener("click", () => {
-  photoGallery.scrollBy({ left: 240, behavior: "smooth" });
+  scrollToPhotoIndex(getCurrentPhotoIndex() + 1);
 });
 
 (function addPhotoCaptions() {
