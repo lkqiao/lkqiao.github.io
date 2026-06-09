@@ -135,44 +135,67 @@ galleryScrollRight.addEventListener("click", () => {
 function toggleExperience(header) {
   const item = header.closest('.experience-item');
   const details = item.querySelector('.experience-details');
-  const bullets = details.querySelectorAll('li');
   const isExpanding = !item.classList.contains('active');
 
-  if (isExpanding) {
-    item.classList.add('active');
+  // Only stagger-animate direct bullet items, not sub-category list items
+  const animBullets = Array.from(details.querySelectorAll('li'))
+    .filter(li => !li.classList.contains('course-category-item') && !li.closest('.course-sublist'));
 
-    // Reset li styles
-    bullets.forEach((li) => {
+  if (isExpanding) {
+    // Measure BEFORE adding .active so padding-bottom is still 0
+    const targetHeight = details.scrollHeight + 30;
+
+    item.classList.add('active');
+    details.style.maxHeight = targetHeight + 'px';
+    // padding-bottom now animates 0→30px in sync with max-height (same 0.5s duration)
+
+    const onMaxHeightDone = (e) => {
+      if (e.propertyName !== 'max-height') return;
+      details.removeEventListener('transitionend', onMaxHeightDone);
+      if (item.classList.contains('active')) {
+        details.style.maxHeight = 'none';
+        // padding-bottom is already at 30px from CSS — no jump
+      }
+    };
+    details.addEventListener('transitionend', onMaxHeightDone);
+
+    animBullets.forEach((li) => {
       li.style.animation = 'none';
       li.offsetHeight;
     });
-
-    // Fade in bullets with stagger
-    bullets.forEach((li, i) => {
+    animBullets.forEach((li, i) => {
       li.style.animation = 'bulletFadeIn 0.4s ease-out forwards';
-      li.style.animationDelay = `${0.2 + i * 0.03}s`;
+      li.style.animationDelay = `${0.1 + i * 0.03}s`;
     });
 
   } else {
-    // Fade out the container as a whole
+    // Capture current rendered height (sub-details may be open) before collapsing
+    details.style.maxHeight = details.offsetHeight + 'px';
+    details.offsetHeight; // force reflow
+
     details.style.opacity = '0';
     details.style.maxHeight = '0px';
     details.style.paddingBottom = '0px';
 
-    // Remove .active after transition completes
     setTimeout(() => {
       item.classList.remove('active');
-
-      // Reset everything
       details.style.opacity = '';
       details.style.maxHeight = '';
       details.style.paddingBottom = '';
-      bullets.forEach((li) => {
-        li.style.opacity = 0;
+
+      animBullets.forEach((li) => {
+        li.style.opacity = '';
         li.style.animation = '';
         li.style.animationDelay = '';
       });
-    }, 150); // match transition timing
+
+      // Reset sub-details to closed so re-open is always consistent
+      details.querySelectorAll('.course-category').forEach(d => {
+        d.removeAttribute('open');
+        const sublist = d.querySelector('.course-sublist');
+        if (sublist) { sublist.style.maxHeight = ''; sublist.style.opacity = ''; }
+      });
+    }, 200);
   }
 }
 
@@ -583,6 +606,49 @@ document.addEventListener('DOMContentLoaded', function () {
     initAll();
   }
 })();
+
+// ==== COURSE CATEGORY DROPDOWNS ====
+document.querySelectorAll('.course-category').forEach(details => {
+  const summary = details.querySelector('.course-category-summary');
+  const sublist = details.querySelector('.course-sublist');
+
+  summary.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (details.open) {
+      // Closing: capture current height, animate to 0, then remove open
+      sublist.style.maxHeight = sublist.scrollHeight + 'px';
+      sublist.offsetHeight;
+      sublist.style.maxHeight = '0px';
+      sublist.style.opacity = '0';
+
+      const onDone = (ev) => {
+        if (ev.propertyName !== 'max-height') return;
+        sublist.removeEventListener('transitionend', onDone);
+        details.removeAttribute('open');
+        sublist.style.maxHeight = '';
+        sublist.style.opacity = '';
+      };
+      sublist.addEventListener('transitionend', onDone);
+
+    } else {
+      // Opening: set open, measure height, animate from 0
+      details.setAttribute('open', '');
+      const h = sublist.scrollHeight;
+      sublist.style.maxHeight = '0px';
+      sublist.offsetHeight;
+      sublist.style.maxHeight = h + 'px';
+      sublist.style.opacity = '1';
+
+      const onDone = (ev) => {
+        if (ev.propertyName !== 'max-height') return;
+        sublist.removeEventListener('transitionend', onDone);
+        sublist.style.maxHeight = 'none';
+      };
+      sublist.addEventListener('transitionend', onDone);
+    }
+  });
+});
 
 // Initialize state on page load
 // updateCarousel();
