@@ -31,18 +31,9 @@ if (sidebar.classList.contains('collapsed')) {
   body.classList.add('sidebar-open'); // show backdrop if not collapsed
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const isCollapsed = sidebar.classList.contains('collapsed');
-  const icon = toggleBtn.querySelector('img');
-  icon.src = isCollapsed ? 'assets/icons/plus-menu.svg' : 'assets/icons/minus-menu.svg';
-  icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
-});
 
 function updateSidebarState() {
   const isCollapsed = sidebar.classList.contains('collapsed');
-  const icon = toggleBtn.querySelector('img');
-  icon.src = isCollapsed ? 'assets/icons/plus-menu.svg' : 'assets/icons/minus-menu.svg';
-  icon.alt = isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar';
 
   if (isCollapsed) {
     body.classList.add('collapsed');
@@ -422,6 +413,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleBtn  = document.getElementById('tagToggle');
   const inputBox   = document.getElementById('tagInput');
 
+  if (!chipsBox || !dropdown || !toggleBtn || !inputBox) return;
+
   const selected = new Set();
 
   function tagsForCard(card) {
@@ -672,5 +665,3 @@ document.querySelectorAll('.course-category').forEach(details => {
   });
 });
 
-// Initialize state on page load
-// updateCarousel();
