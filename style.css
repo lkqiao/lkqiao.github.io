@@ -1549,10 +1549,42 @@ body.dark .ext-link:hover {
   :root {
     --right-sidebar-width: 85vw;
   }
+
+  .right-sidebar .song-card {
+    width: clamp(160px, 58vw, 380px);
+  }
+
+  .right-sidebar .song-card h4 {
+    font-size: 1rem;
+  }
+
+  .right-sidebar .song-card p {
+    font-size: 0.85rem;
+  }
+
+  .right-sidebar .song-card .song-title {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 480px) {
   :root {
     --right-sidebar-width: 92vw;
+  }
+
+  .right-sidebar .song-card {
+    width: clamp(160px, 72vw, 340px);
+  }
+
+  .right-sidebar .song-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .right-sidebar .song-card p {
+    font-size: 0.8rem;
+  }
+
+  .right-sidebar .song-card .song-title {
+    font-size: 14px;
   }
 }
