@@ -948,10 +948,11 @@ body.dark strong {
 
 .coursework-list {
   list-style: none;
-  padding-left: 60px;
+  padding-left: 80px;
 }
 
 .course-category-item {
+  margin-left: -25px;
   margin-bottom: 6px;
   list-style: none;
   opacity: 1 !important;
@@ -959,23 +960,21 @@ body.dark strong {
 }
 
 .course-category {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: border-color 0.3s;
+  background: none;
 }
 
 .course-category-summary {
-  padding: 8px 14px;
+  padding: 3px 10px;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95em;
   list-style: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   user-select: none;
-  transition: background 0.2s;
+  border-radius: 4px;
+  transition: color 0.2s;
 }
 
 .course-category-summary::-webkit-details-marker {
@@ -994,7 +993,7 @@ body.dark strong {
 }
 
 .course-category-summary:hover {
-  background: rgba(0, 0, 0, 0.04);
+  color: var(--accent-color);
 }
 
 .course-sublist {
@@ -1014,14 +1013,6 @@ body.dark strong {
   animation: none !important;
 }
 
-/* Dark mode: education */
-body.dark .course-category {
-  border-color: #444;
-}
-
-body.dark .course-category-summary:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
 
 /* =============================================
    12. PROJECTS
