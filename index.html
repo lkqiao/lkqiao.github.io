@@ -160,7 +160,7 @@
         <span style="display: block; height: 0.75em;"></span>
         Passionate about creating things people use. Excited to solve difficult problems across analog IC design, PCB design, and RF. Also interested in robotics, AI hardware, aerospace, and music tech. 
         <span style="display: block; height: 0.75em;"></span>
-        Previously did analog/mixed-signal at Apple, EE at Tesla, design verification at Apple, and microelectronics R&D at Sandia National Labs. 
+        Previously did AMS at Apple, EE at Tesla, design verification at Apple, and microelectronics R&D at Sandia National Labs. 
         <span style="display: block; height: 0.75em;"></span>
         Contact me: <a class="email-link" href="#" id="emailLink">lkqiao@stanford.edu</a>
       </p>
@@ -194,7 +194,10 @@
         </div>
         <div class="experience-divider"></div>
         <ul class="experience-details">
-          <li>Behavioral modeling in the Advanced Technologies Group</li>
+          <li>Implemented <strong>sparse-data ML</strong> techniques (KANs/ARD-GPs) in <strong>SystemVerilog</strong> via DPI-C for behavioral modeling of <strong>PLL/SerDes blocks</strong>; achieved <strong>under 1% error</strong> with <strong>~25x fewer</strong> SPICE simulations, reducing Spectre compute overhead</li>
+          <li>Built end-to-end <strong>closed-loop agentic flow</strong> for ML-based behavioral modeling of analog blocks (e.g. DCO, VGA, CTLE), automating circuit characterization, model selection/tuning, fitting, and validation; cut modeling time from <strong>weeks to hours</strong></li>
+          <li>Implemented SystemVerilog <strong>pole-residue model</strong> of <strong>LDO PSRR</strong> via <strong>LTI state matrix</strong> diagonalization; enables <strong>efficient computation</strong> of state-transition (<strong>~2x runtime speedup</strong>) without fixed timesteps/free-running clocks for DV regressions</li>
+          <li>Explored <strong>duty cycle correction (DCC)</strong> delay-cell topologies (feedback/feedforward) to improve slew rate and reduce PSIJ</li>
         </ul>
       </div>
 
@@ -218,9 +221,9 @@
         </div>
         <div class="experience-divider"></div>
         <ul class="experience-details">
-          <li>Brought up an <strong>automated benchtop test system</strong> with interface PCB to validate safety-critical functions on next-gen <strong>battery management boards</strong> (contactors, pack monitoring, HV iso, ADC telemetry, wireless comms) to support future platforms</li>
+          <li>Designed and brought up an <strong>automated benchtop test system</strong> with interface PCB to validate safety-critical functions on next-gen <strong>battery management boards</strong> (contactors, pack monitoring, HV iso, ADC telemetry, wireless comms) to support future platforms</li>
           <li>Led <strong>major revision of interface PCB</strong> schematic and layout in <strong>Altium</strong>, routed impedance-controlled & length-matched diff pairs for Ethernet, CAN, and USB; developed <strong>RP2040 firmware in C++</strong> for fault injection, DSP, and GPIO monitoring</li>
-          <li>Validated + tuned <strong>analog circuits</strong> across Cybertruck, Semi, Roadster, and Cybercab platforms</li>
+          <li>Validated + tuned <strong>analog circuits</strong> for Cybertruck, Semi, Roadster, and Cybercab battery controller boards</li>
           <li>Compensated current limit feedback loop for stability, characterized contactor drive circuit, modelled BLDC motor stall detection & analyzed overcurrent protection, evaluated UART firmware flashing reliability</li>
         </ul>
       </div>
@@ -245,11 +248,10 @@
         </div>
         <div class="experience-divider"></div>
         <ul class="experience-details">
-          <li>Led the design of a proof-of-concept rad-hard <strong>RF amplifier</strong> PCB using LTSpice, Keysight ADS, and Altium Designer</li>
-          <li>Accounted for stability and <strong>impedance matching</strong>, designed <strong>distributed components</strong> to minimize effect of parasitics</li>
-          <li>Achieved a gain of <strong>~20 dB</strong> in the <strong>1-5 GHz range</strong>, meeting required specs and <strong>demonstrating for the first time</strong> that the group's custom HBT technology was capable of RF applications</li>
-          <li>Substantially improved <strong>heterojunction bipolar transistor (HBT)</strong> noise modeling, reducing simulation 
-            error by <strong>60%</strong></li>
+          <li>Designed the first proof-of-concept rad-hard <strong>RF amplifier PCB</strong> using the group's custom <strong>heterojunction bipolar transistor (HBT)</strong> technology with LTSpice, Keysight ADS, and Altium Designer</li>
+          <li>Accounted for stability and <strong>impedance matching</strong>, designed <strong>distributed/planar RF components</strong> to optimize parasitics and high-frequency performance</li>
+          <li>Achieved a gain of <strong>~20 dB</strong> in the <strong>1-5 GHz range</strong>, meeting required specs and validating the group's HBT technology for RF applications</li>
+          <li>Substantially improved HBT <strong>noise modeling</strong>, reducing simulation error by <strong>60%</strong></li>
         </ul>
       </div>
 
